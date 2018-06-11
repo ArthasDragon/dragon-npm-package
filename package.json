@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "",
-  "author": "an_ying <ywl123698745>",
+  "author": "ywlDragon",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ywl1641627793/dragon-npm-package.git/issues"
+  },
   "scripts": {
     "precommit": "lint-staged",
     "format":
