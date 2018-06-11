@@ -1,0 +1,54 @@
+{
+  "name": "hlj-antd-cmps",
+  "version": "0.5.0",
+  "description": "一套基于antd的组件库",
+  "main": "./lib/index.js",
+  "module": "./dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf ./dist && gulp jsToReact && gulp css && gulp cssToJs",
+    "dist": "gulp jsToReact && gulp postcss && rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ywl1641627793/hlj-antd-cmps.git"
+  },
+  "bugs": "https://github.com/ywl1641627793/hlj-antd-cmps/issues",
+  "devDependencies": {
+    "antd": "^3.5.3",
+    "autoprefixer": "^8.5.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "classnames": "^2.2.5",
+    "cross-env": "^5.1.6",
+    "css-loader": "^0.28.11",
+    "cssnano": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-postcss": "^7.0.1",
+    "happypack": "^5.0.0",
+    "hlj-gulp-plugins": "^1.4.0",
+    "hlj-utils": "^0.3.22",
+    "mini-css-extract-plugin": "^0.4.0",
+    "postcss-loader": "^2.1.5",
+    "postcss-modules": "^1.1.0",
+    "precss": "^3.1.2",
+    "rollup": "^0.59.3",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-postcss": "^1.6.1"
+  },
+  "dependencies": {
+    "react-image-crop": "^4.0.1"
+  }
+}

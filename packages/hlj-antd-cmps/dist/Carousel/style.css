@@ -1,0 +1,29 @@
+._container_a02h7_1{
+  margin: 0 auto;
+  &:hover{
+    ._arrow_a02h7_7{
+      opacity:1;
+    }
+  }
+}
+._arrow_a02h7_7{
+  height:100%;
+  font-size: 40px;
+  color: #808080;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .5s;
+  background:rgba(160,160,160,.2);
+  &:hover{
+    color: #000;
+    background:rgba(160,160,160,.8);
+  }
+}
+._right_a02h7_47{
+  transform: translateX(14px);
+}
+._left_a02h7_53{
+  transform: translateX(-14px);
+}

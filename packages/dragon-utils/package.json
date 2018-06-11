@@ -1,0 +1,33 @@
+{
+  "name": "dragon-util",
+  "version": "1.0.15",
+  "repository": "https://github.com/ywl1641627793/dragon_util.git",
+  "author": "an_ying <ywl123698745>",
+  "license": "MIT",
+  "main": "index.js",
+  "bin": {
+    "dragon-util": "./componentUtil/index.js"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-config-hlj-merchant": "^0.5.1",
+    "jest": "^22.4.2",
+    "moment": "^2.22.0",
+    "rollup": "^0.56.3",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.3"
+  },
+  "scripts": {
+    "lint": "eslint src",
+    "test": "jest --notify --coverage",
+    "test:watch": "jest --watch",
+    "build": "npm lint && npm test && rollup -c"
+  }
+}

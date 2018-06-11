@@ -1,0 +1,24 @@
+._container_zg6fh_1{
+  overflow: auto;
+  padding: 5px;
+  background: #fff;
+  ._record_zg6fh_9{
+    margin-bottom: 10px;
+    ._header_zg6fh_13{
+      &>span{
+        color: #999;
+        margin-right: 20px;
+      }
+    }
+    ._content_zg6fh_25{
+      padding: 5px 0;
+      font-size: 14px;
+    }
+  }
+  ._empty_record_zg6fh_35{
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+    padding: 5px;
+  }
+}

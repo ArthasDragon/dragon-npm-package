@@ -1,0 +1,29 @@
+.container{
+  margin: 0 auto;
+  &:hover{
+    .arrow{
+      opacity:1;
+    }
+  }
+}
+.arrow{
+  height:100%;
+  font-size: 40px;
+  color: #808080;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .5s;
+  background:rgba(160,160,160,.2);
+  &:hover{
+    color: #000;
+    background:rgba(160,160,160,.8);
+  }
+}
+.right{
+  transform: translateX(14px);
+}
+.left{
+  transform: translateX(-14px);
+}
