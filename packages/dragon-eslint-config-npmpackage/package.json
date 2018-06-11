@@ -4,7 +4,7 @@
     "description": "ESLint configuration used by Dragon",
     "license": "MIT",
     "bugs": {
-      "url": "https://github.com/ywl1641627793/dragon-npm-package.git/issues"
+      "url": "https://github.com/ArthasDragon/dragon-npm-package.git/issues"
     },
     "files": [
       "index.js"

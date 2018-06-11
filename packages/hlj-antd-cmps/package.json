@@ -11,9 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ywl1641627793/hlj-antd-cmps.git"
+    "url": "https://github.com/ArthasDragon/dragon-npm-package.git"
   },
-  "bugs": "https://github.com/ywl1641627793/hlj-antd-cmps/issues",
+  "bugs": "https://github.com/ArthasDragon/dragon-npm-package.git/issues",
   "devDependencies": {
     "antd": "^3.5.3",
     "autoprefixer": "^8.5.0",

@@ -4,7 +4,8 @@
   "repository": "https://github.com/ywl1641627793/dragon_util.git",
   "author": "an_ying <ywl123698745>",
   "license": "MIT",
-  "main": "index.js",
+  "main": "dist/hlj-util.js",
+  "module": "dist/hlj-util.es.js",
   "bin": {
     "dragon-util": "./componentUtil/index.js"
   },

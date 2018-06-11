@@ -6,18 +6,22 @@
   "author": "ywlDragon",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ywl1641627793/dragon-npm-package.git/issues"
+    "url": "https://github.com/ArthasDragon/dragon-npm-package.git/issues"
   },
   "scripts": {
     "precommit": "lint-staged",
-    "format":
-      "prettier-eslint --write \"packages/**/*.jsx\" \"packages/**/*.js\""
+    "format": "prettier-eslint --write \"packages/**/*.jsx\" \"packages/**/*.js\""
   },
   "lint-staged": {
-    "*.js(x)": ["prettier-eslint --write", "eslint", "git add"]
+    "*.js(x)": [
+      "prettier-eslint --write",
+      "eslint",
+      "git add"
+    ]
   },
   "devDependencies": {
     "autoprefixer": "^8.4.1",
+    "dragon-eslint-config-npmpackage": "^2.1.0",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
     "husky": "^0.14.3",
