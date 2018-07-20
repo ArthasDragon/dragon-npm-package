@@ -1,0 +1,15 @@
+{
+  "name": "hlj-antd-scripts",
+  "version": "1.0.0",
+  "description": "Configuration and scripts for Create Hlj Antd.",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArthasDragon/dragon-npm-package.git"
+  },
+  "bugs": "https://github.com/ArthasDragon/dragon-npm-package.git/issues",
+  "bin": {
+    "antd-scripts": "./bin/antd-scripts.js"
+  }
+}

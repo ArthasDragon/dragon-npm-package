@@ -6,8 +6,7 @@
   "module": "./dist/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf ./dist && gulp jsToReact && gulp css && gulp cssToJs",
-    "dist": "gulp jsToReact && gulp postcss && rollup -c"
+    "build": "rm -rf ./dist && gulp jsToReact && gulp css && gulp cssToJs"
   },
   "repository": {
     "type": "git",
