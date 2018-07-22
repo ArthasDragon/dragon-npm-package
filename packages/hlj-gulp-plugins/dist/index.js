@@ -1,22 +1,27 @@
-'use strict';
+"use strict";
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+function _interopDefault(ex) {
+  return ex && typeof ex === "object" && "default" in ex ? ex["default"] : ex;
+}
 
-var fs = _interopDefault(require('fs'));
-var stream = _interopDefault(require('stream'));
+var fs = _interopDefault(require("fs"));
+var stream = _interopDefault(require("stream"));
 
 var transform = new stream.Transform({ objectMode: true });
-transform._transform = function (chunk, encoding, callback) {
+transform._transform = function(chunk, encoding, callback) {
   //此处输出传入的文件流，就是一段buffer
   var filePath = chunk.history[0];
-  var content = chunk.contents.toString('utf-8');
+  var content = chunk.contents.toString("utf-8");
   var pattern = /import ([a-z]*) from ['"].\/style.css['"]/;
   if (pattern.test(content)) {
-    var data = fs.readFileSync(filePath.replace('index.js', 'style.json'));
+    var data = fs.readFileSync(filePath.replace("index.js", "style.json"));
     var match = content.match(pattern);
-    content = content.replace(match[0], 'import "./style.css"\nconst ' + match[1] + ' = ' + data);
+    content = content.replace(
+      match[0],
+      'import "./style.css"\nconst ' + match[1] + " = " + data
+    );
   }
-  fs.writeFile(filePath, new Buffer(content), 'utf8', function (err) {
+  fs.writeFile(filePath, new Buffer(content), "utf8", function(err) {
     if (err) {
       console.error(err);
     }

@@ -1,21 +1,21 @@
-import React, { Component } from 'react'
-import { Button } from 'antd'
-import { isPromise } from 'hlj-utils'
+import React, { Component } from "react";
+import { Button } from "antd";
+import { isPromise } from "hlj-utils";
 
 export default class extends Component {
   state = {
     loading: false
-  }
+  };
   click = async e => {
-    const { onClick } = this.props
+    const { onClick } = this.props;
     if (isPromise(onClick)) {
-      this.setState({ loading: true })
-      await onClick(e)
-      this.setState({ loading: false })
+      this.setState({ loading: true });
+      await onClick(e);
+      this.setState({ loading: false });
     } else {
-      onClick && onClick(e)
+      onClick && onClick(e);
     }
-  }
+  };
   render() {
     return (
       <Button
@@ -23,6 +23,6 @@ export default class extends Component {
         {...this.props}
         onClick={this.click}
       />
-    )
+    );
   }
 }

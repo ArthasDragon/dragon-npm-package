@@ -1,0 +1,3 @@
+{
+  "extends": ["dragon-eslint-config-npmpackage"]
+}

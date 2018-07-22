@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 
-'use strict'
+"use strict";
 
-const { spawnSync } = require('child_process')
-const script = process.argv[2]
+const { spawnSync } = require("child_process");
+const script = process.argv[2];
 
 switch (script) {
-  case 'start':
-  case 'build':
-    const res = spawnSync('node', [require.resolve('../scripts/' + script)], {
-      stdio: 'inherit'
-    })
-    break
+  case "start":
+  case "build":
+    const res = spawnSync("node", [require.resolve("../scripts/" + script)], {
+      stdio: "inherit"
+    });
+    break;
   default:
-    console.log(`Unknown script ${script}.`)
-    break
+    console.log(`Unknown script ${script}.`);
+    break;
 }

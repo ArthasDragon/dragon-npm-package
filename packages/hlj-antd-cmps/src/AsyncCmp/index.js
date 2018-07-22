@@ -1,34 +1,33 @@
-import React, {Component} from 'react'
+import React, { Component } from "react";
 
-export default loadComponent => (
+export default loadComponent =>
   class extends Component {
     state = {
-      Cmp: null,
-    }
+      Cmp: null
+    };
 
     componentWillMount() {
       if (this.hasLoadedComponent()) {
-        return
+        return;
       }
 
       loadComponent()
         .then(module => module.default)
-        .then((Cmp) => {
-          this.setState({Cmp})
+        .then(Cmp => {
+          this.setState({ Cmp });
         })
-        .catch((err) => {
-          console.error(`Cannot load component in <AsyncCmp />`)
-          throw err
-        })
+        .catch(err => {
+          console.error(`Cannot load component in <AsyncCmp />`);
+          throw err;
+        });
     }
 
     hasLoadedComponent() {
-      return this.state.Cmp !== null
+      return this.state.Cmp !== null;
     }
 
     render() {
-      const {Cmp} = this.state
-      return Cmp && <Cmp {...this.props} />
+      const { Cmp } = this.state;
+      return Cmp && <Cmp {...this.props} />;
     }
-  }
-)
+  };

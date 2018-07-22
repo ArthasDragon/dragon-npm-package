@@ -6,12 +6,7 @@ import store from './store'
 
 @observer
 export default class extends Component {
-    render() {
-        return (
-            <Table
-                columns={columns}
-                store={store}
-            />
-        )
-    }
+  render() {
+    return <Table columns={columns} store={store} />
+  }
 }

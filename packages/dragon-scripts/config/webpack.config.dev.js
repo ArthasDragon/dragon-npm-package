@@ -1,29 +1,46 @@
-﻿const webpack = require('webpack')
-const merge = require('webpack-merge')
-const HtmlWebpackPlugin=require('html-webpack-plugin')
-const OpenBrowserPlugin=require('open-browser-webpack-plugin')
-const webpackConfig = require('./webpack.config.base')
-const config = require('../config')
-const plugins=[
-    new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebpackPlugin({
-        template: 'index.html',
-        filename: 'index.html',
-        showErrors: true,
-        inject: 'body',
-        favicon:'assets/imgs/logo.png',
-    })
-]
-if(process.platform!=='linux'){
-    plugins.push(
-        new OpenBrowserPlugin({ url: 'http://localhost:'+config.port })
-    )
-}
-module.exports = merge(webpackConfig, {
-    //cheap-eval-source-map,#eval-source-map,cheap-module-eval-source-map
-    devtool: 'cheap-module-eval-source-map',
-    output: {
-        publicPath: '/'
-    },
-    plugins: plugins
-})
+﻿const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpackMerge = require("webpack-merge");
+const paths = require("./paths");
+const OpenBrowserPlugin = require("open-browser-webpack-plugin");
+
+module.exports = config => {
+  const webpackConfig = webpackMerge(
+    require("./webpack.config.common")(config),
+    {
+      entry: {
+        app: [
+          require.resolve("./polyfills"),
+          "react-hot-loader/patch",
+          paths.appIndexJs
+        ]
+      },
+      output: {
+        filename: "js/[name].js",
+        chunkFilename: "js/[name].chunk.js"
+      },
+      plugins: [
+        new HtmlWebpackPlugin({
+          inject: true,
+          template: paths.appHtml
+        }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin()
+      ],
+      devtool: "cheap-module-eval-source-map",
+      performance: {
+        hints: false
+      }
+    }
+  );
+
+  if (config.autoOpen) {
+    webpackConfig.plugins.push(
+      new OpenBrowserPlugin({
+        url: `http://localhost:${config.port}`
+      })
+    );
+  }
+
+  return webpackConfig;
+};

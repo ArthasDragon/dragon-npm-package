@@ -6,7 +6,7 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/'],
   transform: {
-    "^.+\\.jsx?$": "babel-jest"
+    '^.+\\.jsx?$': 'babel-jest'
   },
   coverageDirectory: '<rootDir>/__tests__/coverage'
 }

@@ -1,6 +1,6 @@
-import { toJS } from 'mobx'
-import React, { Component } from 'react'
-import { isEmptyObj, isStr, loadScript } from 'hlj-utils'
+import { toJS } from "mobx";
+import React, { Component } from "react";
+import { isEmptyObj, isStr, loadScript } from "hlj-utils";
 /*
  图表通用组件，提供的属性有:
  option:参考echart的配置option
@@ -9,7 +9,7 @@ import { isEmptyObj, isStr, loadScript } from 'hlj-utils'
  header:图表头部工具栏,如果图表需要额外的操作，操作工具栏可以写在这,可以是react组件
  */
 export default class Chart extends Component {
-  chart
+  chart;
   static defaultProps = {
     headerHeight: 40,
     toolbox: true,
@@ -20,26 +20,26 @@ export default class Chart extends Component {
         然后用afterInit在外部去获取图形的实例，然后在必要时去调用实例的setOption(option)方法绘制
          */
     autoChart: true
-  }
+  };
   resizeChart = () => {
-    this.chart.resize()
-  }
+    this.chart.resize();
+  };
   drawChart(option) {
-    let isEmpty = isEmptyObj(option)
+    let isEmpty = isEmptyObj(option);
     if (this.chart) {
       if (isEmpty) {
-        return this.chart.showLoading()
+        return this.chart.showLoading();
       } else {
-        this.chart.hideLoading()
+        this.chart.hideLoading();
       }
-      this.chart.clear()
-      const { toolbox, title } = this.props
+      this.chart.clear();
+      const { toolbox, title } = this.props;
       if (title && !option.title) {
         option.title = isStr(title)
           ? {
               text: title
             }
-          : title
+          : title;
       }
       if (!option.toolbox && toolbox) {
         option.toolbox =
@@ -48,79 +48,79 @@ export default class Chart extends Component {
                 show: true,
                 feature: {
                   dataZoom: {
-                    yAxisIndex: 'none'
+                    yAxisIndex: "none"
                   },
                   dataView: { readOnly: false },
-                  magicType: { type: ['line', 'bar'] },
+                  magicType: { type: ["line", "bar"] },
                   restore: {},
                   saveAsImage: {}
                 }
               }
-            : toolbox
+            : toolbox;
       }
-      this.chart.setOption(toJS(option)) //true
+      this.chart.setOption(toJS(option)); //true
     }
   }
 
   init() {
-    const { afterInit, option } = this.props
-    this.chart = echarts.init(this.chartEl)
-    afterInit && afterInit(this.chart)
-    window.addEventListener('resize', this.resizeChart)
-    this.drawChart(option)
+    const { afterInit, option } = this.props;
+    this.chart = echarts.init(this.chartEl);
+    afterInit && afterInit(this.chart);
+    window.addEventListener("resize", this.resizeChart);
+    this.drawChart(option);
   }
 
   componentDidMount() {
     if (window.echarts) {
-      this.init()
+      this.init();
     } else {
-      loadScript('https://cdn.bootcss.com/echarts/3.7.2/echarts.min.js', () => {
-        this.init()
-      })
+      loadScript("https://cdn.bootcss.com/echarts/3.7.2/echarts.min.js", () => {
+        this.init();
+      });
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.autoChart) {
-      this.drawChart(nextProps.option)
+      this.drawChart(nextProps.option);
     }
   }
 
-  shouldComponentUpdate = () => false
+  shouldComponentUpdate = () => false;
 
   componentWillUnmount() {
-    this.chart = null
-    window.removeEventListener('resize', this.resizeChart)
+    this.chart = null;
+    window.removeEventListener("resize", this.resizeChart);
   }
   getChartEl = el => {
-    this.chartEl = el
-  }
+    this.chartEl = el;
+  };
   render() {
-    const { style, header, headerHeight } = this.props
+    const { style, header, headerHeight } = this.props;
     let styles = {
-      margin: '20px 0 20px 0',
+      margin: "20px 0 20px 0",
       height: 500,
       ...style
-    }
+    };
     let headerStyles = {
-      position: 'relative',
+      position: "relative",
       height: headerHeight,
       marginBottom: 10,
-      background: '#f5f5f5',
+      background: "#f5f5f5",
       borderRadius: 5,
       padding: 5,
       fontSize: 14
-    }
+    };
     return (
       <div style={styles}>
         {header && <header style={headerStyles}>{header}</header>}
         <div
           style={{
-            height: header ? styles.height - headerHeight - 10 : '100%'
+            height: header ? styles.height - headerHeight - 10 : "100%"
           }}
           ref={this.getChartEl}
         />
       </div>
-    )
+    );
   }
 }

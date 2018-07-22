@@ -1,32 +1,67 @@
-const isDev = require('./util').isDev()
-const HappyPack = require('happypack')
-const threadPool = HappyPack.ThreadPool({size: 8})
+const HappyPack = require("happypack");
+const threadPool = HappyPack.ThreadPool({ size: 8 });
+
 const cssModules = {
   modules: true,
   importLoaders: 1,
-  localIdentName: '[path][name]__[local]--[hash:base64:5]'
-}
-const createHappyPack = function (id, loaders) {
+  localIdentName: "[path][name]__[local]--[hash:base64:5]"
+};
+const createHappyPack = function(id, loaders) {
   return new HappyPack({
     id,
-    // threads: 8,
     threadPool,
-    loaders,
-  })
-}
+    loaders
+  });
+};
+
+const jsxLoader = {
+  loader: "babel-loader",
+  options: {
+    babelrc: false,
+    cacheDirectory: true,
+    presets: [
+      [
+        "env",
+        {
+          modules: false,
+          targets: {
+            browsers: ["last 2 versions"]
+          }
+        }
+      ],
+      "stage-2",
+      "react"
+    ],
+    plugins: ["transform-decorators-legacy", "transform-object-rest-spread"]
+  }
+};
+
+const cssLoader = { loader: "css-loader", options: { minimize: true } };
+
+const postcssLoader = {
+  loader: "postcss-loader",
+  options: {
+    config: {
+      path: require.resolve("./postcss.config.js")
+    }
+  }
+};
+
 module.exports = [
-  createHappyPack('jsx', [{
-    loader: 'babel-loader',
-    options: {cacheDirectory: isDev}
-  }]),
+  createHappyPack("jsx", [jsxLoader]),
 
-  createHappyPack('css', ['css-loader']),
+  createHappyPack("css", [cssLoader, "postcss-loader", "less-loader"]),
 
-  createHappyPack('css_post', ['css-loader', 'postcss-loader']),
-
-  createHappyPack('css_modules_post', [{
-    loader: 'css-loader',
-    options: cssModules
-  }, 'postcss-loader']),
+  createHappyPack("css_modules", [
+    {
+      loader: "css-loader",
+      options: {
+        minimize: true,
+        ...cssModules
+      }
+    },
+    postcssLoader,
+    "less-loader"
+  ])
   // createHappyPack('less', ['css-loader','less-loader']),
-]
+];
