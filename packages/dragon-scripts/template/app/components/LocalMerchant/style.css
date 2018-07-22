@@ -1,0 +1,30 @@
+.content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #f2f3f6;
+  padding-left: 200px;
+  overflow: auto;
+  padding-top: 60px;
+}
+.content_menu {
+  overflow: hidden;
+  width: 200px;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  top: 60px;
+  height: 100%;
+  z-index: 999;
+}
+.content_main {
+  position: relative;
+  flex: auto;
+  overflow: auto;
+  background: #f2f3f6;
+  min-width: 1060px;
+  box-shadow: 2px -11px 20px 0 rgba(139, 157, 175, 0.2) inset;
+  height: 100%;
+}

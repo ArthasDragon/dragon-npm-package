@@ -39,7 +39,7 @@ module.exports = (config = {}) => {
       {
         options: {
           baseConfig: {
-            extends: ["dragon-eslint-config-npmpackage"]
+            extends: ["dragon-npmpackage"]
           }
         },
         loader: "eslint-loader"

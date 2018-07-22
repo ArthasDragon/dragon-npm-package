@@ -7,6 +7,7 @@ const script = process.argv[2];
 
 switch (script) {
   case "start":
+  case "init":
   case "build":
     const res = spawnSync("node", [require.resolve("../scripts/" + script)], {
       stdio: "inherit"

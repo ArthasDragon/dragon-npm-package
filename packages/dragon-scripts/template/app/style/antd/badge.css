@@ -1,0 +1,8 @@
+@import "../cssVar/index.css";
+
+.ant-badge-dot{
+  background: $hlj-red1;
+}
+.ant-badge-status-text{
+  font-size: 14px;
+}

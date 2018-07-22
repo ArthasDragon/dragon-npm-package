@@ -1,0 +1,25 @@
+.ant-tabs-nav-container{
+  line-height:60px;
+  font-size:14px;
+}
+.ant-tabs-nav .ant-tabs-tab{
+  padding:0 8px;
+}
+.ant-tabs-ink-bar{
+  height:2px;
+  background-color: #448afc;
+}
+.ant-tabs-nav .ant-tabs-tab-active{
+  color:#448afc;
+}
+.ant-tabs-nav .ant-tabs-tab:hover{
+  color:#448afc;
+}
+.ant-tabs-bar{
+  border:0;
+  margin-bottom: 20px;
+  .ant-tabs-nav{
+    height:60px;
+    font-size:14px;
+  }
+}

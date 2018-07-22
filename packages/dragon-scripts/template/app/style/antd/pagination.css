@@ -1,0 +1,11 @@
+.ant-pagination-item{
+  border:0;
+  /*border-radius: 50%;*/
+}
+.ant-pagination-item-active{
+  /*border-radius: 50%;*/
+  background-color: #448afc;
+}
+.ant-pagination-options-quick-jumper input{
+  vertical-align: top;
+}

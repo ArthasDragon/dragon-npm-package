@@ -8,7 +8,7 @@ const paths = require("../config/paths");
 const { createCompiler } = require("../util/WebpackDevServerUtils");
 const clearConsole = require("../util/clearConsole");
 const mergeConfig = require("../util/mergeConfig")();
-let webpackConfig = require("../config/webpack.dev.config")(mergeConfig);
+let webpackConfig = require("../config/webpack.config.dev")(mergeConfig);
 
 const isInteractive = process.stdout.isTTY;
 const { port, proxy } = mergeConfig;

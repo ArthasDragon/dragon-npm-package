@@ -1,0 +1,5 @@
+@import "../cssVar/index.css";
+
+.ant-switch-checked{
+  background-color: $hlj-blue1;
+}

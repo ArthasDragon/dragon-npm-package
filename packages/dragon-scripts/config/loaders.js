@@ -7,18 +7,19 @@ module.exports = [
     exclude: paths.appModules,
     use: "happypack/loader?id=jsx"
   },
-  {
-    test: /\.tsx?$/,
-    use: [{ loader: "awesome-typescript-loader" }]
-  },
   generateCssLoader({
     include: paths.appSrc,
     exclude: paths.appStyle,
-    happyId: "css_modules"
+    happyId: "css_modules_post"
   }),
   generateCssLoader({
     include: paths.appStyle,
-    happyId: "css"
+    exclude: paths.appLess,
+    happyId: "css_post"
+  }),
+  generateCssLoader({
+    include: paths.appLess,
+    happyId: "less"
   }),
   generateCssLoader({
     include: paths.appModules,

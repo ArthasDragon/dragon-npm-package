@@ -50,9 +50,7 @@ const postcssLoader = {
 module.exports = [
   createHappyPack("jsx", [jsxLoader]),
 
-  createHappyPack("css", [cssLoader, "postcss-loader", "less-loader"]),
-
-  createHappyPack("css_modules", [
+  createHappyPack("css_modules_post", [
     {
       loader: "css-loader",
       options: {
@@ -60,8 +58,13 @@ module.exports = [
         ...cssModules
       }
     },
-    postcssLoader,
-    "less-loader"
-  ])
+    postcssLoader
+  ]),
+
+  createHappyPack("css_post", [cssLoader, postcssLoader]),
+
+  createHappyPack("less", [cssLoader, "less-loader"]),
+
+  createHappyPack("css", [cssLoader, "less-loader"])
   // createHappyPack('less', ['css-loader','less-loader']),
 ];

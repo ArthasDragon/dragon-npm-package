@@ -1,0 +1,46 @@
+/*font*/
+$hlj-font-size:14px;
+/*Modal*/
+$hlj-modal-maxH:600px;
+$ant-form-item-MT:18px;
+
+$f14: 14px;
+$f16: 16px;
+$ant-modal-maxH: 600px;
+$ant-form-item-MT: 10px;
+$primary-color: #448afc;
+
+/*色彩*/
+/*蓝色系*/
+$hlj-blue1:#448afc;
+$hlj-blue2:#a7c5f6;
+$hlj-blue3:#7eaef7;
+$hlj-blue4:#8fcff3;
+/*橘黄色系*/
+$hlj-orange1:#ff801a;
+$hlj-orange2:#ffc597;
+$hlj-orange3:#ffcd3b;
+$hlj-orange4:#ff8c30;
+/*红色系*/
+$hlj-red1:#ff5c5c;
+/*绿色系*/
+$hlj-green1:#2fc286;
+$hlj-green2:#97e0c2;
+$hlj-green3:#80d089;
+$hlj-green4:#4bcf99;
+/*黑色系*/
+$hlj-black1:#000;
+$hlj-black2:#333;
+$hlj-black3:#666;
+/*灰色系*/
+$hlj-gray1:#999;
+$hlj-gray2:#aaa;
+$hlj-gray3:#ccc;
+$hlj-gray4:#e7e7e7;
+$hlj-gray5:#d7d7d7;
+/*紫色系*/
+$hlj-purple1:#d2a1f7;
+/*淡色系*/
+$hlj-light1:#f4f4f4;
+$hlj-light2:#f7f7f7;
+$hlj-light3:#f4f5fa;
