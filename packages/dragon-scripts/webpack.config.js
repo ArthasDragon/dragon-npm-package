@@ -10,7 +10,5 @@ module.exports = {
   publicPath: "/",
   extraVendor: [],
   eslint: true,
-  bundleAnalyzer: false,
-  autoOpen: true,
-  autoOpenLocalhost: false
+  bundleAnalyzer: false
 };

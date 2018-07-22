@@ -1,5 +1,5 @@
-import { createApi } from "hlj-fetch";
+// import { createApi } from "fetch";
 
-export default {
-  logout: createApi("/p/wedding/index.php/Admin/APIAuth/logout")
-};
+// export default {
+//   logout: createApi("/p/wedding/index.php/Admin/APIAuth/logout")
+// };

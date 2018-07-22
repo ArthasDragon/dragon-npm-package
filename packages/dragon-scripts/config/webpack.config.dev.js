@@ -25,7 +25,10 @@ module.exports = config => {
           template: paths.appHtml
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin()
+        new webpack.NamedModulesPlugin(),
+        new OpenBrowserPlugin({
+          url: `http://localhost:${config.port}`
+        })
       ],
       devtool: "cheap-module-eval-source-map",
       performance: {
@@ -33,14 +36,6 @@ module.exports = config => {
       }
     }
   );
-
-  if (config.autoOpen) {
-    webpackConfig.plugins.push(
-      new OpenBrowserPlugin({
-        url: `http://localhost:${config.port}`
-      })
-    );
-  }
 
   return webpackConfig;
 };

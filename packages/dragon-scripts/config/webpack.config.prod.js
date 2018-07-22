@@ -3,6 +3,8 @@ const webpackMerge = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const paths = require("./paths");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 module.exports = config => {
   const webpackConfig = webpackMerge(
@@ -54,17 +56,12 @@ module.exports = config => {
           names: ["vendor", "manifest"],
           minChunks: Infinity
         }),
-        new webpack.optimize.ModuleConcatenationPlugin()
+        new webpack.optimize.ModuleConcatenationPlugin(),
+        new BundleAnalyzerPlugin()
       ],
       devtool: false
     }
   );
-
-  if (config.bundleAnalyzer) {
-    const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
-      .BundleAnalyzerPlugin;
-    webpackConfig.plugins.push(new BundleAnalyzerPlugin());
-  }
 
   return webpackConfig;
 };

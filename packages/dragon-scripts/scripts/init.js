@@ -7,7 +7,10 @@ const path = require("path");
 const chalk = require("chalk");
 const os = require("os");
 
-module.exports = (appPath, appName, originalDirectory, template) => {
+module.exports = (appName, appPath) => {
+  if (!appName) {
+    console.log(chalk.cyan("you should input your production name"));
+  }
   const ownPackageName = require(path.join(__dirname, "..", "package.json"))
     .name;
   const ownPath = path.join(appPath, "node_modules", ownPackageName);
