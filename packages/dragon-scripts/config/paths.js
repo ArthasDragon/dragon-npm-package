@@ -19,7 +19,7 @@ module.exports = {
   appBuild: resolveApp("dist"),
   appHtml: resolveApp("index.html"),
   appBuildHtml: resolveApp("assets/template/index.html"),
-  appConfig: resolveApp("hlj.config.js"),
+  appConfig: resolveApp("webpack.config.js"),
   appfavicon: resolveApp("assets/imgs/logo.png"),
   appLess: resolve("app/style/less")
 };

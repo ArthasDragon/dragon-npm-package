@@ -7,12 +7,11 @@ const fs = require("fs-extra");
 const paths = require("../config/paths");
 const { createCompiler } = require("../util/WebpackDevServerUtils");
 const clearConsole = require("../util/clearConsole");
-const { mutateConfigByFunction } = require("../util/webpackConfig");
-const hljConfig = require("../util/hljConfig")();
-let webpackConfig = require("../config/webpack.dev.config")(hljConfig);
+const mergeConfig = require("../util/mergeConfig")();
+let webpackConfig = require("../config/webpack.dev.config")(mergeConfig);
 
 const isInteractive = process.stdout.isTTY;
-const { port, proxy } = hljConfig;
+const { port, proxy } = mergeConfig;
 
 const handleProxy = proxy => {
   return Object.keys(proxy).reduce((config, currentProxyKey) => {
@@ -36,8 +35,6 @@ const options = {
   disableHostCheck: true,
   proxy: handleProxy(proxy)
 };
-
-webpackConfig = mutateConfigByFunction(webpackConfig, hljConfig);
 
 WebpackDevServer.addDevServerEntrypoints(webpackConfig, options);
 

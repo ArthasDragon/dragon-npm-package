@@ -13,9 +13,12 @@
 		"format": "prettier-eslint --write \"packages/**/*.jsx\" \"packages/**/*.js\""
 	},
 	"lint-staged": {
-		"*.js(x)": ["prettier-eslint --write", "eslint", "git add"]
+		"*.js(x)": [
+			"prettier-eslint --write",
+			"eslint",
+			"git add"
+		]
 	},
-
 	"devDependencies": {
 		"autoprefixer": "^8.4.1",
 		"dragon-eslint-config-npmpackage": "^2.1.0",

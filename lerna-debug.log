@@ -1,0 +1,40 @@
+0 silly input [ 'init' ]
+1 silly flags { _: [ 'init' ], 'reject-cycles': false, rejectCycles: false }
+2 verbose rootPath G:\workspace\dragon-npm-package
+3 info version 2.11.0
+4 silly initialize attempt
+5 silly isInitialized
+6 verbose isInitialized Error: null
+6 verbose isInitialized     at Function.module.exports.sync (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\node_modules\execa\index.js:303:26)
+6 verbose isInitialized     at Function.execSync (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\ChildProcessUtilities.js:59:30)
+6 verbose isInitialized     at Function.isInitialized (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\GitUtilities.js:59:41)
+6 verbose isInitialized     at InitCommand.initialize (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\commands\InitCommand.js:89:35)
+6 verbose isInitialized     at InitCommand._attempt (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\Command.js:377:21)
+6 verbose isInitialized     at InitCommand.runCommand (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\Command.js:363:12)
+6 verbose isInitialized     at C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\Command.js:214:16
+6 verbose isInitialized     at new Promise (<anonymous>)
+6 verbose isInitialized     at InitCommand.run (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\Command.js:193:14)
+6 verbose isInitialized     at Object.handler (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\commands\InitCommand.js:47:14)
+6 verbose isInitialized  swallowed error { Error: null
+6 verbose isInitialized     at Function.module.exports.sync (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\node_modules\execa\index.js:303:26)
+6 verbose isInitialized     at Function.execSync (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\ChildProcessUtilities.js:59:30)
+6 verbose isInitialized     at Function.isInitialized (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\GitUtilities.js:59:41)
+6 verbose isInitialized     at InitCommand.initialize (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\commands\InitCommand.js:89:35)
+6 verbose isInitialized     at InitCommand._attempt (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\Command.js:377:21)
+6 verbose isInitialized     at InitCommand.runCommand (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\Command.js:363:12)
+6 verbose isInitialized     at C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\Command.js:214:16
+6 verbose isInitialized     at new Promise (<anonymous>)
+6 verbose isInitialized     at InitCommand.run (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\Command.js:193:14)
+6 verbose isInitialized     at Object.handler (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\commands\InitCommand.js:47:14)
+6 verbose isInitialized   stack: 'Error: null\n    at Function.module.exports.sync (C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\lerna\\node_modules\\execa\\index.js:303:26)\n    at Function.execSync (C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\lerna\\lib\\ChildProcessUtilities.js:59:30)\n    at Function.isInitialized (C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\lerna\\lib\\GitUtilities.js:59:41)\n    at InitCommand.initialize (C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\lerna\\lib\\commands\\InitCommand.js:89:35)\n    at InitCommand._attempt (C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\lerna\\lib\\Command.js:377:21)\n    at InitCommand.runCommand (C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\lerna\\lib\\Command.js:363:12)\n    at C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\lerna\\lib\\Command.js:214:16\n    at new Promise (<anonymous>)\n    at InitCommand.run (C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\lerna\\lib\\Command.js:193:14)\n    at Object.handler (C:\\Users\\Administrator\\AppData\\Roaming\\npm\\node_modules\\lerna\\lib\\commands\\InitCommand.js:47:14)' }
+7 silly isInitialized false
+8 info Initializing Git repository
+9 silly git init
+10 error initialize caught error
+11 error Error: 'git' �����ڲ����ⲿ���Ҳ���ǿ����еĳ���
+11 error ���������ļ���
+11 error
+11 error     at Function.module.exports.sync (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\node_modules\execa\index.js:303:26)
+11 error     at Function.execSync (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\ChildProcessUtilities.js:59:30)
+11 error     at Function.init (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\GitUtilities.js:227:39)
+11 error     at InitCommand.initialize (C:\Users\Administrator\AppData\Roaming\npm\node_modules\lerna\lib\commands\InitCommand.js:91:32)
