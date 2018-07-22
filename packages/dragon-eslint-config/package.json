@@ -1,12 +1,14 @@
 {
   "name": "dragon-eslint-config",
-  "version": "1.1.0",
+  "version": "1.1.1-0",
   "description": "ESLint configuration used by Dragon",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ArthasDragon/dragon-npm-package.git/issues"
   },
-  "files": ["index.js"],
+  "files": [
+    "index.js"
+  ],
   "peerDependencies": {
     "babel-eslint": "^8.2.2",
     "eslint": "^4.1.1",
