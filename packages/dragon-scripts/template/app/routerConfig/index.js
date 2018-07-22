@@ -1,20 +1,20 @@
-import Main from '@components/Main'
-import Error from '@components/Error'
-import localMerchant from './localMerchant'
+import Main from "@components/Main";
+import Error from "@components/Error";
+import localMerchant from "./localMerchant";
 
 export default [
   {
-    path: '/',
+    path: "/",
     component: Main,
     indexRoute: {
       onEnter(ns, replace) {
-        replace('/localMerchant')
+        replace("/localMerchant");
       }
     },
     childRoutes: [localMerchant]
   },
   {
-    path: '*',
+    path: "*",
     component: Error
   }
-]
+];

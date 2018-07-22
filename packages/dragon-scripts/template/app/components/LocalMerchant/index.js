@@ -1,20 +1,20 @@
-import React, { Component } from 'react'
-import Menu from './Menu'
-import style from './style'
+import React, { Component } from "react";
+import Menu from "./Menu";
+import style from "./style";
 
 export default class extends Component {
   shouldComponentUpdate(nextProps) {
     const {
       location: { pathname }
-    } = this.props
-    return nextProps.location.pathname !== pathname
+    } = this.props;
+    return nextProps.location.pathname !== pathname;
   }
 
   render() {
     const {
       location: { pathname },
       children
-    } = this.props
+    } = this.props;
 
     return (
       <div className={style.content}>
@@ -24,6 +24,6 @@ export default class extends Component {
 
         <div className={style.content_main}>{children}</div>
       </div>
-    )
+    );
   }
 }

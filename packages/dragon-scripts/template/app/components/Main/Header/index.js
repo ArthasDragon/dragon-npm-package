@@ -1,40 +1,40 @@
-import React, { Component } from 'react'
-import { Modal, Menu } from 'antd'
-import { Link } from 'react-router'
-import { observer } from 'mobx-react'
-import store from '../store'
-import style from './style'
+import React, { Component } from "react";
+import { Modal, Menu } from "antd";
+import { Link } from "react-router";
+import { observer } from "mobx-react";
+import store from "../store";
+import style from "./style";
 
-const SubMenu = Menu.SubMenu
+const SubMenu = Menu.SubMenu;
 
 @observer
 export default class extends Component {
   state = {
     visible: false
-  }
+  };
 
   handleOk = () => {
     this.setState({
       visible: false
-    })
-    store.logoutAction()
-  }
+    });
+    store.logoutAction();
+  };
 
   handleCancel = () => {
     this.setState({
       visible: false
-    })
-  }
+    });
+  };
 
   showWin = () => {
     this.setState({
       visible: true
-    })
-  }
+    });
+  };
 
   render() {
-    const { merchantInfo } = store
-    const { logo_path } = merchantInfo
+    const { merchantInfo } = store;
+    const { logo_path } = merchantInfo;
 
     return (
       <div className={style.headBox}>
@@ -65,11 +65,11 @@ export default class extends Component {
                   <img
                     className={style.userHead}
                     src={
-                      logo_path.indexOf('imageMogr2') > -1
+                      logo_path.indexOf("imageMogr2") > -1
                         ? logo_path
-                        : logo_path + '?imageView2/1/w/32/h/32'
+                        : logo_path + "?imageView2/1/w/32/h/32"
                     }
-                    style={{ borderRadius: '50%', width: 32 }}
+                    style={{ borderRadius: "50%", width: 32 }}
                   />
                   <i />
                 </div>
@@ -89,11 +89,11 @@ export default class extends Component {
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
-          <p style={{ fontSize: 18, textAlign: 'center', lineHeight: '68px' }}>
+          <p style={{ fontSize: 18, textAlign: "center", lineHeight: "68px" }}>
             确定退出？
           </p>
         </Modal>
       </div>
-    )
+    );
   }
 }

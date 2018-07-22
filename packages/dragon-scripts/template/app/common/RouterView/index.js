@@ -1,16 +1,16 @@
-import React, { PureComponent } from 'react'
-import { Breadcrumb } from 'antd'
-import cls from 'classnames'
-import styles from './style.css'
+import React, { PureComponent } from "react";
+import { Breadcrumb } from "antd";
+import cls from "classnames";
+import styles from "./style.css";
 
-const Item = Breadcrumb.Item
+const Item = Breadcrumb.Item;
 
 export default class extends PureComponent {
   static defaultProps = {
-    header: '',
+    header: "",
     title: null,
     extra: null
-  }
+  };
 
   render() {
     const {
@@ -21,20 +21,20 @@ export default class extends PureComponent {
       children,
       title,
       extra
-    } = this.props
+    } = this.props;
     const _header = Array.isArray(header) ? (
       <Breadcrumb separator=">">
         {header.map((item, i) => <Item key={i}>{item}</Item>)}
       </Breadcrumb>
     ) : (
       header
-    )
+    );
     return (
       <div
         className={styles.view}
         style={{ minHeight: document.body.clientHeight - 80 }}
       >
-        {_header != '' && (
+        {_header != "" && (
           <header style={headerStyle} className={styles.header}>
             {_header}
           </header>
@@ -43,7 +43,7 @@ export default class extends PureComponent {
         <div
           style={contentStyle}
           className={cls(styles.content, {
-            [styles.no_header]: _header === ''
+            [styles.no_header]: _header === ""
           })}
         >
           {title && (
@@ -57,6 +57,6 @@ export default class extends PureComponent {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }

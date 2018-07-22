@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import RouterView from '@common/RouterView'
+import React, { Component } from "react";
+import RouterView from "@common/RouterView";
 
 export default class extends Component {
   render() {
@@ -7,6 +7,6 @@ export default class extends Component {
       <RouterView title="嘻嘻" header="二级菜单">
         嘻嘻
       </RouterView>
-    )
+    );
   }
 }

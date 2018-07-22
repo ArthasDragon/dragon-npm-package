@@ -1,38 +1,38 @@
-import LocalMerchant from '@components/LocalMerchant'
-import Home from '@components/LocalMerchant/Home'
-import Xixi from '@components/LocalMerchant/Xixi'
-import Haha from '@components/LocalMerchant/Haha'
-import Cry from '@components/LocalMerchant/Cry'
-import Sad from '@components/LocalMerchant/Sad'
+import LocalMerchant from "@components/LocalMerchant";
+import Home from "@components/LocalMerchant/Home";
+import Xixi from "@components/LocalMerchant/Xixi";
+import Haha from "@components/LocalMerchant/Haha";
+import Cry from "@components/LocalMerchant/Cry";
+import Sad from "@components/LocalMerchant/Sad";
 
 export default {
-  path: 'localMerchant',
+  path: "localMerchant",
   component: LocalMerchant,
   indexRoute: {
     onEnter(ns, replace) {
-      replace('/localMerchant/home')
+      replace("/localMerchant/home");
     }
   },
   childRoutes: [
     {
-      path: 'home',
+      path: "home",
       component: Home
     },
     {
-      path: 'xixi',
+      path: "xixi",
       component: Xixi
     },
     {
-      path: 'haha',
+      path: "haha",
       component: Haha
     },
     {
-      path: 'cry',
+      path: "cry",
       component: Cry
     },
     {
-      path: 'sad',
+      path: "sad",
       component: Sad
     }
   ]
-}
+};
