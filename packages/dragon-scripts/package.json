@@ -1,6 +1,6 @@
 {
   "name": "dragon-scripts",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Configuration and scripts for Create Production",
   "main": "index.js",
   "license": "MIT",
@@ -32,8 +32,8 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.28.11",
     "cssnano": "^3.10.0",
-    "dragon-eslint-config-npmpackage": "^2.1.0",
     "eslint": "^4.1.1",
+    "eslint-config-dragon-npmpackage": "^2.1.0",
     "eslint-config-hlj-merchant": "^0.5.1",
     "eslint-loader": "^1.9.0",
     "extract-text-webpack-plugin": "^3.0.2",
