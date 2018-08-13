@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js publish --tag latest --new-version 0.6.0
 
 PATH: 
-  C:\Users\Administrator\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Administrator\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\AOMEI Backupper 3.5;D:\cygwin64\bin;D:\phpStudy\php\php-7.0.12-nts;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-9.0.4\bin;C:\Program Files\Java\jdk-9.0.4\jre\bin;C:\Program Files\nodejs;C:\Program Files (x86)\GnuWin32\bin;C:\Program Files (x86)\Egret\Egret Wing 3\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;D:\Fiddler;C:\Users\Administrator\AppData\Local\Yarn\bin;C:\Program Files\Docker Toolbox;D:\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm;C:\Program Files (x86)\GnuWin32\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  E:\workspace\dragon-npm\packages\hlj-antd-cmps\node_modules\.bin;E:\workspace\dragon-npm\packages\node_modules\.bin;E:\workspace\dragon-npm\node_modules\.bin;E:\workspace\node_modules\.bin;E:\node_modules\.bin;C:\Program Files\nodejs;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\AOMEI Backupper 3.5;D:\cygwin64\bin;D:\phpStudy\php\php-7.0.12-nts;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-9.0.4\bin;C:\Program Files\Java\jdk-9.0.4\jre\bin;C:\Program Files\nodejs\;C:\Program Files (x86)\GnuWin32\bin;C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\;D:\Microsoft VS Code\bin;C:\Program Files (x86)\Egret\Egret Wing 3\bin;C:\Program Files\MySQL\MySQL Server 5.7\bin;D:\Fiddler;C:\Users\Administrator\AppData\Local\Yarn\bin;C:\Program Files\Docker Toolbox;D:\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm;C:\Program Files (x86)\GnuWin32\bin
 
 Yarn version: 
   1.3.2
@@ -16,20 +16,19 @@ Platform:
 npm manifest: 
   {
     "name": "hlj-antd-cmps",
-    "version": "0.1.0",
+    "version": "0.6.0",
     "description": "一套基于antd的组件库",
     "main": "./lib/index.js",
     "module": "./dist/index.js",
     "license": "MIT",
     "scripts": {
-      "build": "rm rf ./dist && gulp jsToReact && gulp css && gulp cssToJs",
-      "dist": "gulp jsToReact && gulp postcss && rollup -c"
+      "build": "rm -rf ./dist && gulp jsToReact && gulp css && gulp cssToJs"
     },
     "repository": {
       "type": "git",
-      "url": "https://github.com/ywl1641627793/hlj-antd-cmps.git"
+      "url": "https://github.com/ArthasDragon/dragon-npm-package.git"
     },
-    "bugs": "https://github.com/ywl1641627793/hlj-antd-cmps/issues",
+    "bugs": "https://github.com/ArthasDragon/dragon-npm-package.git/issues",
     "devDependencies": {
       "antd": "^3.5.3",
       "autoprefixer": "^8.5.0",
@@ -52,6 +51,7 @@ npm manifest:
       "gulp-minify-css": "^1.2.4",
       "gulp-postcss": "^7.0.1",
       "happypack": "^5.0.0",
+      "hlj-gulp-plugins": "^1.5.0",
       "hlj-utils": "^0.3.22",
       "mini-css-extract-plugin": "^0.4.0",
       "postcss-loader": "^2.1.5",
@@ -61,10 +61,11 @@ npm manifest:
       "rollup-plugin-babel": "^3.0.4",
       "rollup-plugin-commonjs": "^9.1.3",
       "rollup-plugin-node-resolve": "^3.3.0",
-      "rollup-plugin-postcss": "^1.6.1",
-      "hlj-gulp-plugins": "^1.1.0"
+      "rollup-plugin-postcss": "^1.6.1"
     },
-    "dependencies": {}
+    "dependencies": {
+      "react-image-crop": "^4.0.1"
+    }
   }
 
 yarn manifest: 
@@ -2095,9 +2096,9 @@ Lockfile:
     version "1.0.2"
     resolved "https://registry.yarnpkg.com/hash-sum/-/hash-sum-1.0.2.tgz#33b40777754c6432573c120cc3808bbd10d47f04"
   
-  hlj-gulp-plugins@^1.0.14:
-    version "1.0.14"
-    resolved "https://registry.yarnpkg.com/hlj-gulp-plugins/-/hlj-gulp-plugins-1.0.14.tgz#8b233f5d328e8a8b37a91aa1cff27c266b979ef4"
+  hlj-gulp-plugins@^1.2.0:
+    version "1.2.0"
+    resolved "https://registry.yarnpkg.com/hlj-gulp-plugins/-/hlj-gulp-plugins-1.2.0.tgz#dd1631a54d357b89d31e19173d5aff5104e710d4"
   
   hlj-utils@^0.3.22:
     version "0.3.22"
@@ -4005,6 +4006,10 @@ Lockfile:
       prop-types "^15.5.10"
       shallowequal "^0.2.2"
   
+  react-image-crop@^4.0.1:
+    version "4.0.1"
+    resolved "https://registry.yarnpkg.com/react-image-crop/-/react-image-crop-4.0.1.tgz#8a9c441dfe9c3af9dd988528dade340d7aa65a06"
+  
   react-lazy-load@^3.0.12:
     version "3.0.13"
     resolved "https://registry.yarnpkg.com/react-lazy-load/-/react-lazy-load-3.0.13.tgz#3b0a92d336d43d3f0d73cbe6f35b17050b08b824"
@@ -4757,7 +4762,7 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
 
 Trace: 
-  Error: connect ETIMEDOUT 104.18.94.96:80
+  Error: connect ETIMEDOUT 104.16.19.35:80
       at Object._errnoException (util.js:1022:11)
       at _exceptionWithHostPort (util.js:1044:20)
       at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1198:14)
