@@ -2022,9 +2022,9 @@ hash-sum@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/hash-sum/-/hash-sum-1.0.2.tgz#33b40777754c6432573c120cc3808bbd10d47f04"
 
-hlj-gulp-plugins@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/hlj-gulp-plugins/-/hlj-gulp-plugins-1.2.0.tgz#dd1631a54d357b89d31e19173d5aff5104e710d4"
+hlj-gulp-plugins@^1.5.0:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/hlj-gulp-plugins/-/hlj-gulp-plugins-1.4.2.tgz#74efd745a0727c7ac33a39910a96f1e16195b645"
 
 hlj-utils@^0.3.22:
   version "0.3.22"

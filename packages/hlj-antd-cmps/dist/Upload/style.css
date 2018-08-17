@@ -1,0 +1,104 @@
+._upbox_14ba8_1{
+  font-size: 14px;
+  position: relative;
+  border:1px dashed #d9d9d9;
+  overflow: hidden;
+  transition: border .5s,color .5s;
+  border-radius: 6px;
+  color:#666;
+  &:hover{
+    cursor: pointer;
+    border:1px dashed #2db7f5;
+    color: #2db7f5;
+    ._upload_mark_14ba8_25{
+      color: #2db7f5;
+    }
+  }
+  ._upbut_14ba8_33{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    ._upimg_14ba8_41{
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+    }
+    ._upload_mark_14ba8_25{
+      position: absolute;
+      top:50%;
+      left:50%;
+      transition: color .5s;
+      transform: translate(-50%,-50%);
+      font-size: 50px;
+      color: #d9d9d9;
+    }
+    ._up_text_14ba8_71{
+      height:100%;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2px;
+    }
+  }
+  ._disabled_14ba8_91{
+    position: absolute;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    cursor: not-allowed;
+  }
+  ._progress_14ba8_109{
+    position: absolute;
+    top:50%;
+    left:50%;
+    z-index: 10;
+    width: 90%;
+    transform: translate(-50%,-50%);
+  }
+  ._closeBtn_14ba8_125{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #FFF;
+    z-index: 11;
+    &::before{
+      font-size: 20px;
+    }
+  }
+  ._delete_14ba8_145{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 50px;
+    font-size: 18px;
+    z-index: -1;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    background: rgba(148,149,153,.7);
+    opacity: 0;
+    transition: opacity .5s;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #000;
+  }
+  ._active_14ba8_183{
+    z-index: 3;
+    opacity:1;
+  }
+  ._description_14ba8_191{
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    padding: 5px;
+    left:0;
+    right:0;
+  }
+}

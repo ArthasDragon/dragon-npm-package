@@ -1,0 +1,104 @@
+.upbox{
+  font-size: 14px;
+  position: relative;
+  border:1px dashed #d9d9d9;
+  overflow: hidden;
+  transition: border .5s,color .5s;
+  border-radius: 6px;
+  color:#666;
+  &:hover{
+    cursor: pointer;
+    border:1px dashed #2db7f5;
+    color: #2db7f5;
+    .upload_mark{
+      color: #2db7f5;
+    }
+  }
+  .upbut{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .upimg{
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%,-50%);
+    }
+    .upload_mark{
+      position: absolute;
+      top:50%;
+      left:50%;
+      transition: color .5s;
+      transform: translate(-50%,-50%);
+      font-size: 50px;
+      color: #d9d9d9;
+    }
+    .up_text{
+      height:100%;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2px;
+    }
+  }
+  .disabled{
+    position: absolute;
+    top:0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    cursor: not-allowed;
+  }
+  .progress{
+    position: absolute;
+    top:50%;
+    left:50%;
+    z-index: 10;
+    width: 90%;
+    transform: translate(-50%,-50%);
+  }
+  .closeBtn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #FFF;
+    z-index: 11;
+    &::before{
+      font-size: 20px;
+    }
+  }
+  .delete{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 50px;
+    font-size: 18px;
+    z-index: -1;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    background: rgba(148,149,153,.7);
+    opacity: 0;
+    transition: opacity .5s;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #000;
+  }
+  .active{
+    z-index: 3;
+    opacity:1;
+  }
+  .description{
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    padding: 5px;
+    left:0;
+    right:0;
+  }
+}

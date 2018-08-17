@@ -1,0 +1,9 @@
+.user_img{
+  img{
+    border-radius: 50%;
+  }
+}
+.user_info{
+  text-align: center;
+  padding-top: 2px;
+}

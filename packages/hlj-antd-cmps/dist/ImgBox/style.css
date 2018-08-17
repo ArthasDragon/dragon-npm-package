@@ -1,0 +1,13 @@
+._container_y8vy1_1{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  ._item_y8vy1_9{
+    margin: 4px;
+    position: relative;
+    background: #f4f4f4 no-repeat center;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}

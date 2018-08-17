@@ -1,107 +1,22 @@
-var _extends =
-  Object.assign ||
-  function(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
-  };
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _createClass = (function() {
-  function defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-  return function(Constructor, protoProps, staticProps) {
-    if (protoProps) defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) defineProperties(Constructor, staticProps);
-    return Constructor;
-  };
-})();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _class, _temp2;
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-  return obj;
-}
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _objectWithoutProperties(obj, keys) {
-  var target = {};
-  for (var i in obj) {
-    if (keys.indexOf(i) >= 0) continue;
-    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
-    target[i] = obj[i];
-  }
-  return target;
-}
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) {
-  if (!self) {
-    throw new ReferenceError(
-      "this hasn't been initialised - super() hasn't been called"
-    );
-  }
-  return call && (typeof call === "object" || typeof call === "function")
-    ? call
-    : self;
-}
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError(
-      "Super expression must either be null or a function, not " +
-        typeof superClass
-    );
-  }
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      enumerable: false,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass)
-    Object.setPrototypeOf
-      ? Object.setPrototypeOf(subClass, superClass)
-      : (subClass.__proto__ = superClass);
-}
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import React, { PureComponent, Children } from "react";
-import "./style.css";
-const styles = {
-  container: "_container_79bsf_3",
-  extra: "_extra_79bsf_9",
-  item: "_item_79bsf_21",
-  active_item: "_active_item_79bsf_69",
-  disabled: "_disabled_79bsf_81"
-};
+import "./style.css"
+const styles = {"container":"_container_79bsf_3","extra":"_extra_79bsf_9","item":"_item_79bsf_21","active_item":"_active_item_79bsf_69","disabled":"_disabled_79bsf_81"};
 import cls from "classnames";
 import { Icon } from "antd";
 import { getRes, isNoProp } from "../common.util";
@@ -110,7 +25,7 @@ var Item = function Item() {
   return null;
 };
 
-var Action = ((_temp2 = _class = (function(_PureComponent) {
+var Action = (_temp2 = _class = function (_PureComponent) {
   _inherits(Action, _PureComponent);
 
   function Action() {
@@ -120,128 +35,102 @@ var Action = ((_temp2 = _class = (function(_PureComponent) {
 
     _classCallCheck(this, Action);
 
-    for (
-      var _len = arguments.length, args = Array(_len), _key = 0;
-      _key < _len;
-      _key++
-    ) {
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return (
-      (_ret = ((_temp = ((_this = _possibleConstructorReturn(
-        this,
-        (_ref = Action.__proto__ || Object.getPrototypeOf(Action)).call.apply(
-          _ref,
-          [this].concat(args)
-        )
-      )),
-      _this)),
-      (_this.state = {
-        _active: _this.props.defaultActive
-      }),
-      (_this.change = function(item) {
-        return function() {
-          var onChange = _this.props.onChange;
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Action.__proto__ || Object.getPrototypeOf(Action)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      _active: _this.props.defaultActive
+    }, _this.change = function (item) {
+      return function () {
+        var onChange = _this.props.onChange;
 
-          var resActive = getRes(_this, "active");
-          if (!item.disabled && resActive !== item.value) {
-            if (isNoProp(_this, "active")) {
-              _this.setState({
-                _active: item.value
-              });
-            }
-            onChange && onChange(item.value, item);
+        var resActive = getRes(_this, "active");
+        if (!item.disabled && resActive !== item.value) {
+          if (isNoProp(_this, "active")) {
+            _this.setState({
+              _active: item.value
+            });
           }
-        };
-      }),
-      (_this.getOptions = function() {
-        var _this$props = _this.props,
+          onChange && onChange(item.value, item);
+        }
+      };
+    }, _this.getOptions = function () {
+      var _this$props = _this.props,
           options = _this$props.options,
           children = _this$props.children;
 
-        var res = [].concat(options);
-        Children.forEach(children, function(item) {
-          if (item && item.type === Item) {
-            var _item$props = item.props,
+      var res = [].concat(options);
+      Children.forEach(children, function (item) {
+        if (item && item.type === Item) {
+          var _item$props = item.props,
               _children = _item$props.children,
               rest = _objectWithoutProperties(_item$props, ["children"]);
 
-            res.push(_extends({ title: _children }, rest));
-          }
-        });
-        return res;
-      }),
-      _temp)),
-      _possibleConstructorReturn(_this, _ret)
-    );
+          res.push(_extends({ title: _children }, rest));
+        }
+      });
+      return res;
+    }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  _createClass(Action, [
-    {
-      key: "render",
-      value: function render() {
-        var _this2 = this;
+  _createClass(Action, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
 
-        var _props = this.props,
+      var _props = this.props,
           style = _props.style,
           extra = _props.extra,
           bordered = _props.bordered;
 
-        var resActive = getRes(this, "active");
-        var options = this.getOptions();
-        return React.createElement(
-          "div",
-          {
-            className: styles.container,
-            style: _extends({}, style, {
-              borderBottom: bordered ? "1px solid #d9d9d9" : 0
-            })
-          },
-          options.map(function(item) {
-            var _ref2 = item || {},
+      var resActive = getRes(this, "active");
+      var options = this.getOptions();
+      return React.createElement(
+        "div",
+        {
+          className: styles.container,
+          style: _extends({}, style, {
+            borderBottom: bordered ? "1px solid #d9d9d9" : 0
+          })
+        },
+        options.map(function (item) {
+          var _ref2 = item || {},
               value = _ref2.value,
               title = _ref2.title,
               icon = _ref2.icon,
               disabled = _ref2.disabled;
 
-            return React.createElement(
-              "div",
-              {
-                key: value,
-                onClick: _this2.change(item),
-                className: cls(
-                  styles.item,
-                  _defineProperty({}, styles.disabled, disabled),
-                  _defineProperty({}, styles.active_item, value === resActive)
-                )
-              },
-              React.createElement(
-                "span",
-                null,
-                icon &&
-                  React.createElement(Icon, {
-                    style: { marginRight: 4 },
-                    type: icon
-                  }),
-                title
-              )
-            );
-          }),
-          extra &&
-            React.createElement("div", { className: styles.extra }, extra)
-        );
-      }
+          return React.createElement(
+            "div",
+            {
+              key: value,
+              onClick: _this2.change(item),
+              className: cls(styles.item, _defineProperty({}, styles.disabled, disabled), _defineProperty({}, styles.active_item, value === resActive))
+            },
+            React.createElement(
+              "span",
+              null,
+              icon && React.createElement(Icon, { style: { marginRight: 4 }, type: icon }),
+              title
+            )
+          );
+        }),
+        extra && React.createElement(
+          "div",
+          { className: styles.extra },
+          extra
+        )
+      );
     }
-  ]);
+  }]);
 
   return Action;
-})(PureComponent)),
-(_class.defaultProps = {
+}(PureComponent), _class.defaultProps = {
   bordered: true,
   options: []
-}),
-_temp2);
+}, _temp2);
+
 
 Action.Item = Item;
 export default Action;

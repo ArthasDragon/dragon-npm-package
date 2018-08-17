@@ -1,0 +1,13 @@
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  .item{
+    margin: 4px;
+    position: relative;
+    background: #f4f4f4 no-repeat center;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}

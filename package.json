@@ -1,35 +1,32 @@
 {
-	"name": "hlj-reactantd-cmps",
-	"version": "1.0.0",
-	"main": "index.js",
-	"repository": "",
-	"author": "ywlDragon",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/ArthasDragon/dragon-npm-package.git/issues"
-	},
-	"scripts": {
-		"precommit": "lint-staged",
-		"format": "prettier-eslint --write \"packages/**/*.jsx\" \"packages/**/*.js\""
-	},
-	"lint-staged": {
-		"*.js(x)": [
-			"prettier-eslint --write",
-			"eslint",
-			"git add"
-		]
-	},
-	"devDependencies": {
-		"autoprefixer": "^8.4.1",
-		"dragon-eslint-config-npmpackage": "^2.1.0",
-		"eslint": "^4.19.1",
-		"eslint-plugin-react": "^7.7.0",
-		"husky": "^0.14.3",
-		"lerna": "^2.11.0",
-		"lint-staged": "^7.1.0",
-		"postcss-cli": "^5.0.0",
-		"prettier": "^1.12.1",
-		"prettier-eslint-cli": "^4.7.1",
-		"webpack": "^4.8.1"
-	}
+  "name": "hlj-reactantd-cmps",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "",
+  "author": "ywlDragon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ArthasDragon/dragon-npm-package.git/issues"
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "format":
+      "prettier-eslint --write \"packages/**/*.jsx\" \"packages/**/*.js\""
+  },
+  "lint-staged": {
+    "*.js(x)": ["prettier-eslint --write", "eslint", "git add"]
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.4.1",
+    "eslint": "^4.19.1",
+    "eslint-config-dragon-npmpackage": "^1.2.0",
+    "eslint-plugin-react": "^7.7.0",
+    "husky": "^0.14.3",
+    "lerna": "^2.11.0",
+    "lint-staged": "^7.1.0",
+    "postcss-cli": "^5.0.0",
+    "prettier": "^1.12.1",
+    "prettier-eslint-cli": "^4.7.1",
+    "webpack": "^4.8.1"
+  }
 }
