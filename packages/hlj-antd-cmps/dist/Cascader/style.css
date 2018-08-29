@@ -1,18 +1,14 @@
-._cascader_1iyxn_1 {
-   {
-    ._ant-input_1iyxn_5 {
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-      border-right: 0;
-    }
+._cascader_1yjbj_1 {
+  .ant-input {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-right: 0;
   }
 }
 
-._popover_1iyxn_21 {
-   {
-    ._ant-btn_1iyxn_25 {
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0
-    }
+._popover_1yjbj_17 {
+  .ant-btn {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
   }
 }

@@ -1,14 +1,13 @@
-$active-c:#1890ff;
-._container_79bsf_3{
+._container_1h2zv_1 {
   display: flex;
   position: relative;
-  ._extra_79bsf_9{
+  ._extra_1h2zv_7 {
     position: absolute;
     right: 5px;
-    top:50%;
+    top: 50%;
     transform: translateY(-50%);
   }
-  ._item_79bsf_21{
+  ._item_1h2zv_19 {
     padding: 8px;
     margin-right: 20px;
     position: relative;
@@ -16,32 +15,32 @@ $active-c:#1890ff;
     align-items: center;
     justify-content: center;
     font-size: 14px;
-    &::after{
-      content: ' ';
+    &::after {
+      content: " ";
       position: absolute;
       height: 2px;
-      background: $active-c;
+      background: #1890ff;
       bottom: 0;
       left: 0;
       right: 0;
       transform: scaleX(0) translateY(50%);
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
-    &:hover{
+    &:hover {
       cursor: pointer;
-      color: $active-c;
+      color: #1890ff;
     }
   }
-  ._active_item_79bsf_69{
-    color:$active-c;
-    &::after{
+  ._active_item_1h2zv_67 {
+    color: #1890ff;
+    &::after {
       transform: scaleX(1) translateY(50%);
     }
   }
-  ._disabled_79bsf_81{
-    color: rgba(0,0,0,.25);
-    &:hover{
-      color: rgba(0,0,0,.25);
+  ._disabled_1h2zv_79 {
+    color: rgba(0, 0, 0, 0.25);
+    &:hover {
+      color: rgba(0, 0, 0, 0.25);
       cursor: not-allowed;
     }
   }

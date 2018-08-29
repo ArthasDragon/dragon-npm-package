@@ -1,14 +1,13 @@
-$active-c:#1890ff;
-.container{
+.container {
   display: flex;
   position: relative;
-  .extra{
+  .extra {
     position: absolute;
     right: 5px;
-    top:50%;
+    top: 50%;
     transform: translateY(-50%);
   }
-  .item{
+  .item {
     padding: 8px;
     margin-right: 20px;
     position: relative;
@@ -16,32 +15,32 @@ $active-c:#1890ff;
     align-items: center;
     justify-content: center;
     font-size: 14px;
-    &::after{
-      content: ' ';
+    &::after {
+      content: " ";
       position: absolute;
       height: 2px;
-      background: $active-c;
+      background: #1890ff;
       bottom: 0;
       left: 0;
       right: 0;
       transform: scaleX(0) translateY(50%);
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
-    &:hover{
+    &:hover {
       cursor: pointer;
-      color: $active-c;
+      color: #1890ff;
     }
   }
-  .active_item{
-    color:$active-c;
-    &::after{
+  .active_item {
+    color: #1890ff;
+    &::after {
       transform: scaleX(1) translateY(50%);
     }
   }
-  .disabled{
-    color: rgba(0,0,0,.25);
-    &:hover{
-      color: rgba(0,0,0,.25);
+  .disabled {
+    color: rgba(0, 0, 0, 0.25);
+    &:hover {
+      color: rgba(0, 0, 0, 0.25);
       cursor: not-allowed;
     }
   }

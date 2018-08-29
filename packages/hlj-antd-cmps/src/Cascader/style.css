@@ -1,18 +1,14 @@
 .cascader {
-  :global {
-    .ant-input {
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-      border-right: 0;
-    }
+  :global .ant-input {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-right: 0;
   }
 }
 
 .popover {
-  :global {
-    .ant-btn {
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0
-    }
+  :global .ant-btn {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
   }
 }
