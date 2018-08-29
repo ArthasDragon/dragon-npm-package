@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-"use strict";
+
 
 const { spawnSync } = require("child_process");
 const script = process.argv[2];
@@ -12,7 +12,7 @@ const createReact = require("../scripts/init");
 switch (script) {
   case "start":
   case "build":
-    const res = spawnSync("node", [require.resolve("../scripts/" + script)], {
+    spawnSync("node", [require.resolve("../scripts/" + script)], {
       stdio: "inherit"
     });
     break;
