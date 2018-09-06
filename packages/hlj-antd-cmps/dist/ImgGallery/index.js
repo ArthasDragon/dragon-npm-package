@@ -1,3 +1,10 @@
+import 'antd/lib/icon/style/css';
+import _Icon from 'antd/lib/icon';
+import 'antd/lib/checkbox/style/css';
+import _Checkbox from 'antd/lib/checkbox';
+import 'antd/lib/message/style/css';
+import _message from 'antd/lib/message';
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -19,7 +26,7 @@ const styles = {"container":"_container_4jc5v_1","sort_container":"_sort_contain
 import Upload from '../Upload';
 import SlideModal from '../SlideModal';
 import ClipModal from '../ClipModal';
-import { Icon, message, Checkbox } from 'antd';
+
 import { SortableContainer, SortableElement, arrayMove } from 'react-sortable-hoc';
 import { getRes, injectInit, isNoProp } from '../common.util';
 
@@ -99,7 +106,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
         }
       });
       if (flag) {
-        message.warning('\u6700\u591A\u4E0A\u4F20' + max + '\u5F20\u56FE\u7247');
+        _message.warning('\u6700\u591A\u4E0A\u4F20' + max + '\u5F20\u56FE\u7247');
       }
     }, _this.doCheck = function (item, index) {
       return function (e) {
@@ -212,7 +219,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
                   {
                     className: styles.select
                   },
-                  React.createElement(Checkbox, {
+                  React.createElement(_Checkbox, {
                     checked: checked,
                     onChange: _this2.doCheck(item, index)
                   })
@@ -233,14 +240,14 @@ var _default = (_temp2 = _class = function (_PureComponent) {
                         target: '_blank',
                         href: url
                       },
-                      React.createElement(Icon, { type: 'eye-o' })
-                    ) : React.createElement(Icon, { type: 'eye-o' })
+                      React.createElement(_Icon, { type: 'eye-o' })
+                    ) : React.createElement(_Icon, { type: 'eye-o' })
                   ),
                   showRemove && React.createElement(
                     'span',
                     { onClick: _this2.deleteItem(index, item)
                     },
-                    React.createElement(Icon, { type: 'delete' })
+                    React.createElement(_Icon, { type: 'delete' })
                   )
                 ),
                 React.createElement('img', { src: src, alt: 'img' }),

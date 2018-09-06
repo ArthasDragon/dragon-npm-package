@@ -1,3 +1,8 @@
+import "antd/lib/carousel/style/css";
+import _Carousel from "antd/lib/carousel";
+import "antd/lib/icon/style/css";
+import _Icon from "antd/lib/icon";
+
 var _class, _temp;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -15,7 +20,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 import React, { Component, Children } from "react";
 import "./style.css"
 const styles = {"container":"_container_a02h7_1","arrow":"_arrow_a02h7_7","right":"_right_a02h7_47","left":"_left_a02h7_53"};
-import { Carousel, Icon } from "antd";
+
 import { omit } from "hlj-utils";
 
 var Arrow = function (_Component) {
@@ -49,7 +54,7 @@ var Arrow = function (_Component) {
         React.createElement(
           "p",
           { className: styles.arrow + " " + styles[type] },
-          React.createElement(Icon, { type: type })
+          React.createElement(_Icon, { type: type })
         )
       );
     }
@@ -82,7 +87,7 @@ var _default = (_temp = _class = function (_Component2) {
         "div",
         { className: styles.container, style: { width: width } },
         count ? React.createElement(
-          Carousel,
+          _Carousel,
           _extends({
             ref: "slider",
             dots: true,

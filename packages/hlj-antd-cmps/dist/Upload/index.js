@@ -1,3 +1,10 @@
+import 'antd/lib/icon/style/css';
+import _Icon from 'antd/lib/icon';
+import 'antd/lib/progress/style/css';
+import _Progress from 'antd/lib/progress';
+import 'antd/lib/message/style/css';
+import _message from 'antd/lib/message';
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -15,7 +22,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import React, { PureComponent } from 'react';
-import { Progress, Icon, message } from 'antd';
+
 import styles from './style.css';
 import upload from './config';
 import cls from 'classnames';
@@ -173,7 +180,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
           if (_onError) {
             return _onError(up, err, errTip);
           }
-          message.error('上传失败:' + errTip);
+          _message.error('上传失败:' + errTip);
         }
       }, rest));
     }
@@ -253,7 +260,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
         React.createElement(
           'div',
           { className: styles.progress, style: { display: progress } },
-          React.createElement(Progress, { showInfo: false, strokeWidth: 5, percent: percent })
+          React.createElement(_Progress, { showInfo: false, strokeWidth: 5, percent: percent })
         ),
         React.createElement('i', {
           onClick: this.cancelUpload,
@@ -276,13 +283,13 @@ var _default = (_temp2 = _class = function (_PureComponent) {
                 target: '_blank',
                 href: resLink
               },
-              React.createElement(Icon, { type: 'eye-o' })
-            ) : React.createElement(Icon, { type: 'eye-o' })
+              React.createElement(_Icon, { type: 'eye-o' })
+            ) : React.createElement(_Icon, { type: 'eye-o' })
           ),
           showDelete && React.createElement(
             'span',
             { onClick: this.deleteFile },
-            React.createElement(Icon, { type: 'delete' })
+            React.createElement(_Icon, { type: 'delete' })
           )
         ),
         !children && description && React.createElement(

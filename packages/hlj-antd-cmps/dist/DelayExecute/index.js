@@ -1,3 +1,6 @@
+import 'antd/lib/button/style/css';
+import _Button from 'antd/lib/button';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10,7 +13,7 @@ import React, { Component } from 'react';
 import { observer } from 'mobx-react';
 import "./style.css"
 const styles = {"outer_box":"_outer_box_1jx9l_1","down_modal":"_down_modal_1jx9l_3","button":"_button_1jx9l_25","left_text":"_left_text_1jx9l_31"};
-import { Button } from 'antd';
+
 
 export default (function (store) {
   return function (Cmp) {
@@ -45,12 +48,12 @@ export default (function (store) {
                 text.replace('$time', delay_time + '')
               ),
               React.createElement(
-                Button,
+                _Button,
                 { onClick: store.end(false), className: styles.button },
                 '\u64A4\u9500\u64CD\u4F5C'
               ),
               React.createElement(
-                Button,
+                _Button,
                 { onClick: store.end(true), className: styles.button },
                 '\u7ACB\u5373\u751F\u6548'
               )

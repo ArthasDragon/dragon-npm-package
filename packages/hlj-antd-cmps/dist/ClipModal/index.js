@@ -1,3 +1,10 @@
+import "antd/lib/modal/style/css";
+import _Modal from "antd/lib/modal";
+import "antd/lib/button/style/css";
+import _Button from "antd/lib/button";
+import "antd/lib/message/style/css";
+import _message from "antd/lib/message";
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -11,7 +18,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import React, { PureComponent } from "react";
-import { Modal, Button, message } from "antd";
+
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 import { getObjValue, removeSuffix, addSuffix } from "hlj-utils";
@@ -59,7 +66,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
           onCancel();
         }
       } else {
-        message.warning("还没有截图信息，请截图！");
+        _message.warning("还没有截图信息，请截图！");
       }
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
@@ -92,17 +99,17 @@ var _default = (_temp2 = _class = function (_PureComponent) {
       var url = getObjValue(img, keyField);
       var _url = addSuffix(url, "imageView2/2", true);
       return React.createElement(
-        Modal,
+        _Modal,
         {
           closable: false,
           maskClosable: false,
           width: _modalWidth,
           footer: [React.createElement(
-            Button,
+            _Button,
             { key: "c", type: "dashed", onClick: onCancel },
             "\u53D6\u6D88"
           ), React.createElement(
-            Button,
+            _Button,
             { key: "s", type: "primary", onClick: this.saveClip },
             "\u4FDD\u5B58"
           )],

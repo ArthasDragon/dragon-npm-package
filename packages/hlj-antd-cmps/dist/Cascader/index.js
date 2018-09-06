@@ -1,3 +1,12 @@
+import "antd/lib/popover/style/css";
+import _Popover from "antd/lib/popover";
+import "antd/lib/button/style/css";
+import _Button from "antd/lib/button";
+import "antd/lib/cascader/style/css";
+import _Cascader from "antd/lib/cascader";
+import "antd/lib/tag/style/css";
+import _Tag from "antd/lib/tag";
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -13,9 +22,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import React, { PureComponent, Fragment } from "react";
-import { Cascader, Button, Popover, Tag } from "antd";
+
 import "./style.css"
-const styles = {"cascader":"_cascader_1iyxn_1","ant-input":"_ant-input_1iyxn_5","popover":"_popover_1iyxn_21","ant-btn":"_ant-btn_1iyxn_25"};
+const styles = {"cascader":"_cascader_1yjbj_1","popover":"_popover_1yjbj_17"};
 
 var _default = (_temp2 = _class = function (_PureComponent) {
   _inherits(_default, _PureComponent);
@@ -80,7 +89,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
               }
             },
             React.createElement(
-              Tag,
+              _Tag,
               { color: flag ? selectedColor : "" },
               item.label
             )
@@ -91,7 +100,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
       return React.createElement(
         Fragment,
         null,
-        React.createElement(Cascader, _extends({
+        React.createElement(_Cascader, _extends({
           value: value,
           style: { width: width },
           className: showExtra ? styles.cascader : undefined
@@ -100,7 +109,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
           "span",
           { className: styles.popover },
           React.createElement(
-            Popover,
+            _Popover,
             {
               overlayStyle: overlayStyle,
               placement: placement,
@@ -108,7 +117,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
               trigger: "click"
             },
             React.createElement(
-              Button,
+              _Button,
               { size: rest.size || "default" },
               extraText
             )

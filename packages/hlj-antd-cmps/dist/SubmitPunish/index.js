@@ -1,3 +1,14 @@
+import "antd/lib/modal/style/css";
+import _Modal from "antd/lib/modal";
+import "antd/lib/input/style/css";
+import _Input from "antd/lib/input";
+import "antd/lib/row/style/css";
+import _Row from "antd/lib/row";
+import "antd/lib/col/style/css";
+import _Col from "antd/lib/col";
+import "antd/lib/select/style/css";
+import _Select from "antd/lib/select";
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _class, _temp;
@@ -9,9 +20,9 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 import React, { Component } from "react";
-import { Modal, Row, Col, Input, Select } from "antd";
+
 import { isStr } from "hlj-utils";
-var Option = Select.Option;
+var Option = _Select.Option;
 
 var _default = (_temp = _class = function (_Component) {
   _inherits(_default, _Component);
@@ -83,7 +94,7 @@ var _default = (_temp = _class = function (_Component) {
           warn_time = _state.warn_time;
 
       return React.createElement(
-        Modal,
+        _Modal,
         {
           onCancel: this.handleCancel,
           width: 800,
@@ -91,18 +102,18 @@ var _default = (_temp = _class = function (_Component) {
           visible: visible
         },
         React.createElement(
-          Row,
+          _Row,
           null,
           React.createElement(
-            Col,
+            _Col,
             { span: 5 },
             "\u5C01\u7981\u65F6\u957F\uFF1A"
           ),
           React.createElement(
-            Col,
+            _Col,
             { span: 19 },
             React.createElement(
-              Select,
+              _Select,
               {
                 value: warn_time + "",
                 style: { width: 200 },
@@ -137,10 +148,10 @@ var _default = (_temp = _class = function (_Component) {
           "\u5C01\u7981\u539F\u56E0\uFF1A"
         ),
         React.createElement(
-          Row,
+          _Row,
           null,
           React.createElement(
-            Col,
+            _Col,
             {
               span: 14,
               style: {
@@ -166,9 +177,9 @@ var _default = (_temp = _class = function (_Component) {
             )
           ),
           React.createElement(
-            Col,
+            _Col,
             { span: 10, style: { height: "200px" } },
-            React.createElement(Input.TextArea, {
+            React.createElement(_Input.TextArea, {
               onChange: this.setFengjinMessage(),
               value: message,
               placeholder: "\u9009\u62E9\u6216\u8F93\u5165\u5C01\u7981\u539F\u56E0",

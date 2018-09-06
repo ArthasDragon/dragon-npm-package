@@ -5,9 +5,7 @@
       {
         "modules": false,
         "targets": {
-          "browsers": [
-            "last 2 versions"
-          ]
+          "browsers": ["last 2 versions"]
         }
       }
     ],
@@ -15,13 +13,12 @@
     "react"
   ],
   "plugins": [
-    "transform-decorators-legacy"
+    "transform-decorators-legacy",
+    ["import", { "libraryName": "antd", "style": "css" }]
   ],
   "env": {
     "test": {
-      "plugins": [
-        "transform-es2015-modules-commonjs"
-      ]
+      "plugins": ["transform-es2015-modules-commonjs"]
     }
   }
 }

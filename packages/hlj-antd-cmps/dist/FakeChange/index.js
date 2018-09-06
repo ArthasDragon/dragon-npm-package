@@ -1,3 +1,12 @@
+import 'antd/lib/modal/style/css';
+import _Modal from 'antd/lib/modal';
+import 'antd/lib/card/style/css';
+import _Card from 'antd/lib/card';
+import 'antd/lib/button/style/css';
+import _Button from 'antd/lib/button';
+import 'antd/lib/collapse/style/css';
+import _Collapse from 'antd/lib/collapse';
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _class, _temp2;
@@ -22,11 +31,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
  web:外部传入url为MyCommunityFakerList时，传入1，会返回组件所需要的数据结构
  */
 import React, { PureComponent } from 'react';
-import { Modal, Collapse, Button, Card } from 'antd';
+
 import "./style.css"
 const styles = {"user_img":"_user_img_1wlcm_1","user_info":"_user_info_1wlcm_11"};
 import http from '@http';
-var Panel = Collapse.Panel;
+var Panel = _Collapse.Panel;
 
 var _default = (_temp2 = _class = function (_PureComponent) {
     _inherits(_default, _PureComponent);
@@ -159,7 +168,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
                             weddingday = _user$weddingday === undefined ? '' : _user$weddingday;
 
                         return React.createElement(
-                            Card,
+                            _Card,
                             { key: i,
                                 bordered: false,
                                 bodyStyle: { padding: 10 },
@@ -183,7 +192,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
                                     weddingday + ' | ' + hometown_name
                                 ),
                                 React.createElement(
-                                    Button,
+                                    _Button,
                                     {
                                         onClick: _this3.use(user),
                                         size: 'small',
@@ -196,7 +205,7 @@ var _default = (_temp2 = _class = function (_PureComponent) {
                 );
             });
             var content = React.createElement(
-                Collapse,
+                _Collapse,
                 {
                     defaultActiveKey: ['0'] },
                 userGroup
@@ -207,12 +216,12 @@ var _default = (_temp2 = _class = function (_PureComponent) {
                 title = '知道了';
             }
             return React.createElement(
-                Modal,
+                _Modal,
                 {
                     title: '\u8BF7\u9009\u62E9\u4E00\u4E2A\u8EAB\u4EFD\u9A6C\u7532',
                     closable: false,
                     footer: [React.createElement(
-                        Button,
+                        _Button,
                         { key: 'cancel', type: 'primary', onClick: this.cancelHandler },
                         title
                     )],

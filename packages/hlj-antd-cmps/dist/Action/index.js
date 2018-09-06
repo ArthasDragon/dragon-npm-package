@@ -1,3 +1,6 @@
+import "antd/lib/icon/style/css";
+import _Icon from "antd/lib/icon";
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -16,9 +19,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 import React, { PureComponent, Children } from "react";
 import "./style.css"
-const styles = {"container":"_container_79bsf_3","extra":"_extra_79bsf_9","item":"_item_79bsf_21","active_item":"_active_item_79bsf_69","disabled":"_disabled_79bsf_81"};
+const styles = {"container":"_container_1h2zv_1","extra":"_extra_1h2zv_7","item":"_item_1h2zv_19","active_item":"_active_item_1h2zv_67","disabled":"_disabled_1h2zv_79"};
 import cls from "classnames";
-import { Icon } from "antd";
+
 import { getRes, isNoProp } from "../common.util";
 
 var Item = function Item() {
@@ -111,7 +114,7 @@ var Action = (_temp2 = _class = function (_PureComponent) {
             React.createElement(
               "span",
               null,
-              icon && React.createElement(Icon, { style: { marginRight: 4 }, type: icon }),
+              icon && React.createElement(_Icon, { style: { marginRight: 4 }, type: icon }),
               title
             )
           );
