@@ -1,6 +1,6 @@
 {
   "name": "hlj-antd-cmps",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "一套基于antd的组件库",
   "main": "./lib/index.js",
   "module": "./dist/index.js",
