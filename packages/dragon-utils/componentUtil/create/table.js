@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-'use strict'
+
 
 const { exec } = require('child_process')
 const { dir } = require('../../config')
@@ -10,7 +10,7 @@ exec(
   require.resolve('../sh/move.sh') +
     ' ' +
     dir +
-    '/componentTpl/Table/List' +
+    '/componentTpl/Table' +
     ' ' +
     path
 )

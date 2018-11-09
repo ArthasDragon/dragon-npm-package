@@ -1,12 +1,13 @@
-import React, { Component, Fragment } from 'react'
-import { observer } from 'mobx-react'
-import Table from '@common/Table'
+import React, { Component } from 'react'
+import { Table } from '@common'
 import columns from './columns'
-import store from './store'
+import { inject, observer } from 'mobx-react'
 
 @observer
+@inject('mainStore')
 export default class extends Component {
   render() {
-    return <Table columns={columns} store={store} />
+    const store = this.props.mainStore
+    return <Table store={store} columns={columns} />
   }
 }
