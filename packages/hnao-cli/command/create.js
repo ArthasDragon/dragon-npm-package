@@ -1,9 +1,10 @@
 const inquirer = require('inquirer')
-const { warning } = require('../utils/tips')
+const { info, success } = require('../utils/tips')
 const getSpinner = require('../utils/getSpinner')
 const { resolve } = require('path')
-const { pathExistsSync } = require('fs-extra')
+const { pathExistsSync, copySync, writeFileSync } = require('fs-extra')
 const { error } = require('../utils/tips')
+const { shell } = require('execa')
 
 module.exports = async function() {
   let projectName
@@ -17,11 +18,11 @@ module.exports = async function() {
     {
       name: 'javascript',
       value: 'js'
-    },
-    {
-      name: 'typescript',
-      value: 'ts'
     }
+    // {
+    //   name: 'typescript',
+    //   value: 'ts'
+    // }
   ]
   const { _projectName, _category, _language } = await inquirer.prompt([
     {
@@ -55,10 +56,44 @@ module.exports = async function() {
 }
 
 const createProject = async function(projectName, category, language) {
-  console.log(
-    pathExistsSync(resolve(process.cwd(), 'command')),
-    resolve(process.cwd(), 'command')
-  )
   let generateSpinner = getSpinner('generating... ')
   let installSpinner = getSpinner('installing... ')
+
+  let templetePath = resolve(__dirname, '../templetes/vue')
+  let initialPkg = require(resolve(templetePath, 'package.json'))
+  initialPkg.name = projectName
+  initialPkg.scripts = {
+    start: 'hnao-cli start',
+    build: 'hnao-cli build',
+    dev: 'npm run start'
+  }
+
+  try {
+    info(`\n start generate project: ${projectName}`)
+    generateSpinner.start()
+
+    let projectPath = resolve(process.cwd(), projectName)
+    await shell(`mkdir ${projectName}`)
+    copySync(templetePath, projectPath)
+    writeFileSync(
+      resolve(projectPath, 'package.json'),
+      JSON.stringify(initialPkg, null, 2)
+    )
+
+    generateSpinner.stop()
+    success('\n √ generate completed!')
+
+    info(`\n start install dependencies`)
+    installSpinner.start()
+
+    await shell(
+      `cd ${projectName} && npm install hnao-cli --save && npm install`
+    )
+
+    installSpinner.stop()
+    success('\n √ install completed!')
+  } catch (e) {
+    generateSpinner.stop()
+    installSpinner.stop()
+  }
 }

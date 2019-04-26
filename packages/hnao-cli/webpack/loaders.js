@@ -6,11 +6,28 @@ module.exports = [
   {
     test: /\.vue$/,
     loader: 'vue-loader',
-    options: getConfig('vue-loader.config')
+    options: getConfig('vue-loader.config.js')
   },
   {
     test: /\.js$/,
     loader: 'babel-loader',
+    options: {
+      babelrc: false,
+      cacheDirectory: true,
+      presets: [
+        [
+          'env',
+          {
+            modules: false,
+            targets: {
+              browsers: ['> 1%', 'last 2 versions', 'not ie <= 8']
+            }
+          }
+        ],
+        'stage-2'
+      ],
+      plugins: ['transform-vue-jsx', 'transform-runtime']
+    },
     include: [
       __src,
       __test
