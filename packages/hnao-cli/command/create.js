@@ -5,8 +5,10 @@ const { resolve } = require('path')
 const { pathExistsSync, copySync, writeFileSync } = require('fs-extra')
 const { error } = require('../utils/tips')
 const { shell } = require('execa')
+const checkVersion = require('../utils/checkVersion')
 
 module.exports = async function() {
+  checkVersion()
   let projectName
   let category
   let language

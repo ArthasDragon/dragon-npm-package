@@ -1,4 +1,3 @@
-const path = require('path')
 const { styleLoaders } = require('./generateCssLoader')
 const webpack = require('webpack')
 const getConfig = require('../utils/getConfigs')
@@ -117,11 +116,11 @@ const webpackConfig = merge(baseWebpackConfig, {
     runtimeChunk: 'single',
     minimizer: [
       new UglifyJsPlugin({
-        uglifyOptions: {
-          mangle: {
-            safari10: true
-          }
-        },
+        // uglifyOptions: {
+        //   mangle: {
+        //     safari10: true
+        //   }
+        // },
         sourceMap: config.build.productionSourceMap,
         cache: true,
         parallel: true

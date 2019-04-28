@@ -2,7 +2,8 @@ process.env.NODE_ENV = 'production'
 
 const webpack = require('webpack')
 const fs = require('fs-extra')
-const { __dist } = require('../utils/paths')
+const path = require('path')
+const resolvePath = src => path.resolve(process.cwd(), src)
 
 let webpackConfig = require('../webpack/webpack.prod.conf')
 
@@ -24,9 +25,9 @@ const build = () => {
 }
 
 const cleanAndBuild = () => {
-  fs.emptyDirSync(__dist)
+  fs.emptyDirSync(resolvePath('dist'))
 
   build()
 }
 
-cleanAndBuild()
+module.exports = cleanAndBuild
