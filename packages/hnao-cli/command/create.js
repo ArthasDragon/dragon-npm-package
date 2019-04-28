@@ -8,7 +8,7 @@ const { shell } = require('execa')
 const checkVersion = require('../utils/checkVersion')
 
 module.exports = async function() {
-  checkVersion()
+  await checkVersion()
   let projectName
   let category
   let language
@@ -60,6 +60,7 @@ module.exports = async function() {
 const createProject = async function(projectName, category, language) {
   let generateSpinner = getSpinner('generating... ')
   let installSpinner = getSpinner('installing... ')
+  const { stdout } = await shell(`npm view hnao-cli version`)
 
   let templetePath = resolve(__dirname, '../templetes/vue')
   let initialPkg = require(resolve(templetePath, 'package.json'))
@@ -69,6 +70,7 @@ const createProject = async function(projectName, category, language) {
     build: 'hnao-cli build',
     dev: 'npm run start'
   }
+  initialPkg.dependencies['hnao-cli'] = stdout
 
   try {
     info(`\n start generate project: ${projectName}`)
@@ -88,9 +90,7 @@ const createProject = async function(projectName, category, language) {
     info(`\n start install dependencies`)
     installSpinner.start()
 
-    await shell(
-      `cd ${projectName} && npm install hnao-cli --save && npm install`
-    )
+    await shell(`cd ${projectName} && npm install`)
 
     installSpinner.stop()
     success('\n √ install completed!')
