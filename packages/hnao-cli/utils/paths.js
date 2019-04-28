@@ -27,6 +27,7 @@ module.exports = {
   __devHtml: resolvePath('index.html'),
   __buildHtml: resolvePath('index.html'),
   __static: resolvePath('static'),
+  __dist: resolvePath('dist'),
   getPath: resolvePath,
   assetsPath
 }
