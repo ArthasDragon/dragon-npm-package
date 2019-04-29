@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+//update
+
 const program = require('commander')
 program.version(require('../package').version, '-v, --version')
 program.usage('<command>')

@@ -1,6 +1,6 @@
 {
   "name": "hnao-cli",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "a cli for creating projects simplely",
   "bin": {
     "hnao-cli": "./bin/index.js"
