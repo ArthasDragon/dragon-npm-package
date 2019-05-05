@@ -2,7 +2,11 @@ const inquirer = require('inquirer')
 const { info, success } = require('../utils/tips')
 const getSpinner = require('../utils/getSpinner')
 const { resolve } = require('path')
-const { pathExistsSync, copySync, writeFileSync } = require('fs-extra')
+const {
+  pathExistsSync,
+  copySync,
+  writeFileSync
+} = require('fs-extra')
 const { error } = require('../utils/tips')
 const { shell } = require('execa')
 const checkVersion = require('../utils/checkVersion')
@@ -70,7 +74,9 @@ const createProject = async function(projectName, category, language) {
     build: 'hnao-cli build',
     dev: 'npm run start'
   }
-  initialPkg.dependencies['hnao-cli'] = stdout
+  initialPkg['devDependencies'] = {
+    'hnao-cli': stdout
+  }
 
   try {
     info(`\n start generate project: ${projectName}`)
@@ -87,13 +93,13 @@ const createProject = async function(projectName, category, language) {
     generateSpinner.stop()
     success('\n √ generate completed!')
 
-    info(`\n start install dependencies`)
-    installSpinner.start()
+    // info(`\n start install dependencies`)
+    // installSpinner.start()
 
-    await shell(`cd ${projectName} && npm install`)
+    // await shell(`cd ${projectName} && npm install`)
 
-    installSpinner.stop()
-    success('\n √ install completed!')
+    // installSpinner.stop()
+    // success('\n √ install completed!')
   } catch (e) {
     generateSpinner.stop()
     installSpinner.stop()
