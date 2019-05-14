@@ -1,5 +1,6 @@
 /* eslint-disable */
 import axios from 'axios'
+import { message } from 'element-ui'
 
 /**
 * 定义请求常量
@@ -42,4 +43,49 @@ axios.interceptors.response.use(
     return Promise.reject(error)
   }
 )
-export default axios
+
+let strategy = {
+  get: (url, data) => axios({url,
+    method: 'get',
+    params: {...data},
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }}),
+  post: (url, data) => axios({url,
+    method: 'post',
+    data: {...data},
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }}),
+  form: (url, data) => axios({
+    url,
+    method: 'post',
+    data: {...data},
+    transformRequest: [function (data) {
+      let ret = ''
+      let keys = Object.keys(data)
+      let len = keys.length
+      len && keys.forEach((key, i) => {
+        ret += encodeURIComponent(key) + '=' + encodeURIComponent(data[key]) + (len === i + 1 ? '' : '&')
+      })
+      return ret
+    }],
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    }
+  })
+}
+
+let http = {
+  get: (url) => {
+    return data => strategy.get(url, data)
+  },
+  post: (url) => {
+    return data => strategy.post(url, data)
+  },
+  form: (url) => {
+    return data => strategy.form(url, data)
+  }
+}
+
+export default http

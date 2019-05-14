@@ -1,5 +1,5 @@
 const inquirer = require('inquirer')
-const { info, success } = require('../utils/tips')
+const { info, success, error } = require('../utils/tips')
 const getSpinner = require('../utils/getSpinner')
 const { resolve } = require('path')
 const {
@@ -7,7 +7,6 @@ const {
   copySync,
   writeFileSync
 } = require('fs-extra')
-const { error } = require('../utils/tips')
 const { shell } = require('execa')
 const checkVersion = require('../utils/checkVersion')
 
@@ -65,17 +64,19 @@ const createProject = async function(projectName, category, language) {
   let generateSpinner = getSpinner('generating... ')
   let installSpinner = getSpinner('installing... ')
   const { stdout } = await shell(`npm view hnao-cli version`)
+  const { stdout: scriptVersion } = await shell(`npm view hnao-scripts version`)
 
   let templetePath = resolve(__dirname, '../templetes/vue')
   let initialPkg = require(resolve(templetePath, 'package.json'))
   initialPkg.name = projectName
   initialPkg.scripts = {
-    start: 'hnao-cli start',
-    build: 'hnao-cli build',
+    start: 'hnao-scripts start',
+    build: 'hnao-scripts build',
     dev: 'npm run start'
   }
   initialPkg['devDependencies'] = {
-    'hnao-cli': stdout
+    'hnao-cli': stdout,
+    'hnao-scripts': scriptVersion
   }
 
   try {
