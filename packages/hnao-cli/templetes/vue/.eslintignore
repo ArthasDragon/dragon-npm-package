@@ -3,3 +3,4 @@
 /dist/
 /*.js
 src/assets/js/pub.js
+__tests__
