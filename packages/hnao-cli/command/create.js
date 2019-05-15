@@ -63,7 +63,6 @@ module.exports = async function() {
 const createProject = async function(projectName, category, language) {
   let generateSpinner = getSpinner('generating... ')
   let installSpinner = getSpinner('installing... ')
-  const { stdout } = await shell(`npm view hnao-cli version`)
   const { stdout: scriptVersion } = await shell(`npm view hnao-scripts version`)
 
   let templetePath = resolve(__dirname, '../templetes/vue')
@@ -72,10 +71,10 @@ const createProject = async function(projectName, category, language) {
   initialPkg.scripts = {
     start: 'hnao-scripts start',
     build: 'hnao-scripts build',
-    dev: 'npm run start'
+    dev: 'npm run start',
+    test: "jest --notify"
   }
   initialPkg['devDependencies'] = {
-    'hnao-cli': stdout,
     'hnao-scripts': scriptVersion
   }
 
