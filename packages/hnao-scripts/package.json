@@ -1,6 +1,6 @@
 {
   "name": "hnao-scripts",
-  "version": "1.0.5",
+  "version": "1.0.8",
   "description": "",
   "bin": {
     "hnao-scripts": "./bin/index.js"
@@ -21,10 +21,10 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-stage-2": "^7.0.0",
     "autoprefixer": "^7.1.2",
+    "babel-7-jest": "^21.3.3",
     "babel-eslint": "^8.2.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
-    "babel-jest": "20.0.0",
-    "babel-loader": "^7.1.1",
+    "babel-loader": "^8.0.6",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-plugin-transform-vue-jsx": "^3.5.0",
     "chalk": "^2.4.2",

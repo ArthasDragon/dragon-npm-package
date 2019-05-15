@@ -12,21 +12,21 @@ module.exports = [
     test: /\.js$/,
     loader: 'babel-loader',
     options: {
-      babelrc: false,
-      cacheDirectory: true,
-      presets: [
-        [
-          'env',
-          {
-            modules: false,
-            targets: {
-              browsers: ['> 1%', 'last 2 versions', 'not ie <= 8']
-            }
-          }
-        ],
-        'stage-2'
-      ],
-      plugins: ['transform-vue-jsx', 'transform-runtime']
+      babelrc: true,
+      // cacheDirectory: true,
+      // presets: [
+      //   [
+      //     'env',
+      //     {
+      //       modules: false,
+      //       targets: {
+      //         browsers: ['> 1%', 'last 2 versions', 'not ie <= 8']
+      //       }
+      //     }
+      //   ],
+      //   'stage-2'
+      // ],
+      // plugins: ['transform-vue-jsx', 'transform-runtime']
     },
     include: [
       __src,

@@ -6,6 +6,6 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/', '.history'],
   transform: {
-    '^.+\\.js$': 'babel-jest'
+    '^.+\\.js$': 'babel-7-jest'
   }
 }
