@@ -1,3 +1,4 @@
+export * from './sum'
 
 export function parseTime (time, cFormat) {
   if (arguments.length === 0) {
