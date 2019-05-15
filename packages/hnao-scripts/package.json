@@ -1,6 +1,6 @@
 {
   "name": "hnao-scripts",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "",
   "bin": {
     "hnao-scripts": "./bin/index.js"
@@ -20,6 +20,7 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-stage-2": "^7.0.0",
+    "@babel/runtime": "^7.4.4",
     "autoprefixer": "^7.1.2",
     "babel-7-jest": "^21.3.3",
     "babel-eslint": "^8.2.1",
