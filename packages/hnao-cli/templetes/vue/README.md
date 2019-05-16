@@ -51,6 +51,10 @@ yarn build
 
 ## 工具方法
 
-> utils文件夹下进行开发，utils/__tests__下需要编写对应测试，测试场景尽量齐全
+> utils文件夹下进行开发，utils/__tests__下需要编写对应测试，测试场景应尽量齐全
 
+jest使用方法请去[官网](https://jestjs.io/docs/zh-Hans/getting-started)查看
 
+## 组件
+
+> components文件夹下进行开发，文件名应大写，每个组件需附上md说明文档
