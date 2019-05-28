@@ -1,11 +1,31 @@
 {
   "name": "hnao-utils",
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": "",
+  "author": "ArthasDragon <ywl123698745>",
+  "license": "MIT",
+  "main": "dist/hnao-utils.js",
+  "module": "dist/hnao-utils.es.js",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "dragon-eslint-config-npmpackage": "^2.1.0",
+    "eslint": "^4.19.1",
+    "jest": "^22.4.2",
+    "moment": "^2.22.0",
+    "rollup": "^0.56.3",
+    "rollup-plugin-babel": "^3.0.3",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.3"
   },
-  "author": "",
-  "license": "ISC"
+  "scripts": {
+    "lint": "eslint src",
+    "test": "jest --notify --coverage",
+    "test:watch": "jest --watch",
+    "build": "npm run lint && npm run test && rollup -c"
+  }
 }
