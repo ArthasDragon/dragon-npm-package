@@ -1,12 +1,13 @@
 import { debounce } from '../debounce'
-import { infiniteTimerGame } from '../infiniteTimer'
-
-let num = 0
-const add = function(){
-  num++
-}
-const debounceAdd = debounce(add)
+jest.useFakeTimers();
 
 test('debounce', () => {
+  let test = jest.fn();
+  let debounceTest = debounce(test)
+  debounceTest()
+  debounceTest()
 
+  jest.runAllTimers();
+
+  expect(test).toHaveBeenCalledTimes(1);
 })
