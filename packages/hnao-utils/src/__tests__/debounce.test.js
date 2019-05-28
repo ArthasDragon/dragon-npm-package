@@ -6,6 +6,8 @@ test('debounce', () => {
   let debounceTest = debounce(test)
   debounceTest()
   debounceTest()
+  debounceTest()
+  debounceTest()
 
   jest.runAllTimers();
 

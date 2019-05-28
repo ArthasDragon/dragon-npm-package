@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1559015057430" clover="3.2.0">
-  <project timestamp="1559015057430" name="All files">
+<coverage generated="1559026017450" clover="3.2.0">
+  <project timestamp="1559026017450" name="All files">
     <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3" elements="15" coveredelements="15" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1">
       <file name="debounce.js" path="D:\myworkspace\mygithub\dragon-npm-package\packages\hnao-utils\src\debounce.js">
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="11" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="11" count="4" type="cond" truecount="2" falsecount="0"/>
       </file>
     </metrics>
   </project>
