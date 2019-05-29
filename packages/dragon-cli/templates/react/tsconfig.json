@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "build/dist",
+    "module": "esnext",
+    "target": "es2016",
+    "lib": ["es7", "dom", "esnext"],
+    "sourceMap": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "utils/*": ["utils/*"],
+      "@/*": ["src/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}
