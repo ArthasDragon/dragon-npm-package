@@ -9,8 +9,18 @@ const devWebpackConf = require("../config/webpack.dev.conf");
 
 const WebpackDevServer = require("webpack-dev-server");
 
-const { port, host } = require("../utils/config")();
+const { port, host, proxy } = require("../utils/config")();
 const compiler = createCompiler(devWebpackConf, port);
+
+const handleProxy = proxy => {
+  return Object.keys(proxy).reduce((config, currentProxyKey) => {
+    config[currentProxyKey] = {
+      target: proxy[currentProxyKey],
+      changeOrigin: true
+    };
+    return config;
+  }, {});
+};
 
 const options = {
   clientLogLevel: "none",
@@ -21,7 +31,8 @@ const options = {
   hot: true,
   historyApiFallback: true,
   host,
-  disableHostCheck: true
+  disableHostCheck: true,
+  proxy: handleProxy(proxy)
 };
 
 const server = new WebpackDevServer(compiler, options);
