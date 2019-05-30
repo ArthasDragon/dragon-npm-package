@@ -65,7 +65,7 @@ const createProject = async function(projectName, category, language) {
   let installSpinner = getSpinner('installing... ')
   const { stdout: scriptVersion } = await shell(`npm view dragon-scripts version`)
 
-  let templetePath = resolve(__dirname, '../templetes/react')
+  let templetePath = resolve(__dirname, '../templates/react')
   let initialPkg = require(resolve(templetePath, 'package.json'))
   initialPkg.name = projectName
   initialPkg.scripts = {
