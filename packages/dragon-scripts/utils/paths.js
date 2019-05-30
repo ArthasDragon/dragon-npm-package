@@ -7,6 +7,7 @@ module.exports = function(name) {
     return resolveApp(name);
   }
   return {
-    __dist: resolveApp("dist")
+    __dist: resolveApp("dist"),
+    __config: resolveApp("dragon.config")
   };
 };
