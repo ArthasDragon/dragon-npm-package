@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1559026017450" clover="3.2.0">
-  <project timestamp="1559026017450" name="All files">
-    <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3" elements="15" coveredelements="15" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1">
+<coverage generated="1559542101611" clover="3.2.0">
+  <project timestamp="1559542101611" name="All files">
+    <metrics statements="20" coveredstatements="19" conditionals="13" coveredconditionals="8" methods="6" coveredmethods="6" elements="39" coveredelements="33" complexity="0" loc="20" ncloc="20" packages="1" files="2" classes="2">
       <file name="debounce.js" path="D:\myworkspace\mygithub\dragon-npm-package\packages\hnao-utils\src\debounce.js">
         <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
@@ -12,6 +12,21 @@
         <line num="7" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="8" count="3" type="stmt"/>
         <line num="11" count="4" type="cond" truecount="2" falsecount="0"/>
+      </file>
+      <file name="getUrlParams.js" path="D:\myworkspace\mygithub\dragon-npm-package\packages\hnao-utils\src\getUrlParams.js">
+        <metrics statements="12" coveredstatements="11" conditionals="9" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
       </file>
     </metrics>
   </project>

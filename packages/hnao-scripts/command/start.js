@@ -1,8 +1,8 @@
 const chalk = require('chalk')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-// const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-// const generateCssLoader = require('../webpack/generateCssLoader')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const generateCssLoader = require('../webpack/generateCssLoader')
 
 const devWebpackConfig = require('../webpack/webpack.dev.conf.js')
 const getConfig = require('../utils/getConfigs')
@@ -32,22 +32,22 @@ const options = {
   overlay: config.dev.errorOverlay ? { warnings: false, errors: true } : false,
   publicPath: config.dev.assetsPublicPath,
   proxy: config.dev.proxyTable,
-  // quiet: true, // necessary for FriendlyErrorsPlugin
+  quiet: true, // necessary for FriendlyErrorsPlugin
   watchOptions: {
     poll: config.dev.poll
   }
 }
 
-// devWebpackConfig.plugins.push(
-//   new FriendlyErrorsPlugin({
-//     compilationSuccessInfo: {
-//       messages: [`Your application is running here: http://${host}:${port}`]
-//     },
-//     onErrors: config.dev.notifyOnErrors
-//       ? generateCssLoader.createNotifierCallback()
-//       : undefined
-//   })
-// )
+devWebpackConfig.plugins.push(
+  new FriendlyErrorsPlugin({
+    compilationSuccessInfo: {
+      messages: [`Your application is running here: http://${host}:${port}`]
+    },
+    onErrors: config.dev.notifyOnErrors
+      ? generateCssLoader.createNotifierCallback()
+      : undefined
+  })
+)
 
 WebpackDevServer.addDevServerEntrypoints(devWebpackConfig, options)
 
