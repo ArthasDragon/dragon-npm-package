@@ -13,6 +13,7 @@ const host = process.env.HOST || config.dev.host
 const port = (process.env.PORT && Number(process.env.PORT)) || config.dev.port
 
 const isInteractive = process.stdout.isTTY
+// const checkVersion = require('../utils/checkVersion')
 
 function clearConsole() {
   process.stdout.write(
@@ -55,6 +56,7 @@ const compiler = createCompiler(webpack, devWebpackConfig, port)
 const server = new WebpackDevServer(compiler, options)
 
 module.exports = function() {
+  // await checkVersion()
   server.listen(port, '127.0.0.1', err => {
     if (err) {
       return console.log(err)
