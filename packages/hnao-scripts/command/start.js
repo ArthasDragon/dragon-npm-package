@@ -52,10 +52,10 @@ devWebpackConfig.plugins.push(
 
 WebpackDevServer.addDevServerEntrypoints(devWebpackConfig, options)
 
-const compiler = createCompiler(webpack, devWebpackConfig, port)
+const compiler = createCompiler(webpack, devWebpackConfig)
 const server = new WebpackDevServer(compiler, options)
 
-module.exports = function() {
+module.exports = async function() {
   // await checkVersion()
   server.listen(port, '127.0.0.1', err => {
     if (err) {

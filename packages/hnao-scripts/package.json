@@ -1,6 +1,6 @@
 {
   "name": "hnao-scripts",
-  "version": "1.0.11",
+  "version": "1.0.15",
   "description": "",
   "bin": {
     "hnao-scripts": "./bin/index.js"

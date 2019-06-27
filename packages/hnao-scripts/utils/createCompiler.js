@@ -21,7 +21,7 @@ const printInstructions = (appName, port) => {
   )
   console.log()
 }
-const createCompiler = (webpack, config, port) => {
+const createCompiler = (webpack, config) => {
   const compiler = webpack(config)
 
   compiler.plugin('invalid', () => {
@@ -31,14 +31,14 @@ const createCompiler = (webpack, config, port) => {
     console.log('Compiling...')
   })
 
-  compiler.plugin('done', () => {
-    if (isInteractive) {
-      clearConsole()
-    }
+  // compiler.plugin('done', () => {
+  //   if (isInteractive) {
+  //     clearConsole()
+  //   }
 
-    console.log(chalk.green('Compiled successfully!'))
-    printInstructions(port)
-  })
+  //   console.log(chalk.green('Compiled successfully!'))
+  //   printInstructions(port)
+  // })
   return compiler
 }
 
