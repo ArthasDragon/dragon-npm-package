@@ -9,5 +9,5 @@ module.exports = {
     '^.+\\.jsx?$': 'babel-jest'
   },
   coverageDirectory: '<rootDir>/__tests__/coverage',
-  testURL:'http://localhost'
+  testURL: 'http://localhost'
 }

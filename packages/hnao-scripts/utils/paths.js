@@ -28,6 +28,10 @@ module.exports = {
   __buildHtml: resolvePath('index.html'),
   __static: resolvePath('static'),
   __dist: resolvePath('dist'),
+  __public:
+    process.env.NODE_ENV === 'production'
+      ? config.build.assetsPublicPath
+      : config.dev.assetsPublicPath,
   getPath: resolvePath,
   assetsPath
 }

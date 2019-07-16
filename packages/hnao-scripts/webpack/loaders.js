@@ -1,6 +1,6 @@
 const getConfig = require('../utils/getConfigs')
 const { resolve } = require('path')
-const { __src, __test, assetsPath } = require('../utils/paths')
+const { __src, __test, assetsPath, __public } = require('../utils/paths')
 
 module.exports = [
   {
@@ -12,7 +12,7 @@ module.exports = [
     test: /\.js$/,
     loader: 'babel-loader',
     options: {
-      babelrc: true,
+      babelrc: true
       // cacheDirectory: true,
       // presets: [
       //   [
@@ -49,7 +49,7 @@ module.exports = [
     options: {
       limit: 50000,
       name: assetsPath('img/[name].[hash:7].[ext]'),
-      publicPath: '../../'
+      publicPath: __public
     }
   },
   {
@@ -66,7 +66,7 @@ module.exports = [
     options: {
       limit: 10000,
       name: assetsPath('fonts/[name].[hash:7].[ext]'),
-      publicPath: '../../'
+      publicPath: __public
     }
   }
 ]
