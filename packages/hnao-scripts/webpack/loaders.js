@@ -1,6 +1,6 @@
 const getConfig = require('../utils/getConfigs')
 const { resolve } = require('path')
-const { __src, __test, assetsPath, __public } = require('../utils/paths')
+const { __src, __test, assetsPath } = require('../utils/paths')
 
 module.exports = [
   {
@@ -48,8 +48,8 @@ module.exports = [
     exclude: [resolve(__src, 'icons')],
     options: {
       limit: 50000,
-      name: assetsPath('img/[name].[hash:7].[ext]'),
-      publicPath: __public
+      name: assetsPath('img/[name].[hash:7].[ext]')
+      // publicPath: __public
     }
   },
   {
@@ -65,8 +65,8 @@ module.exports = [
     loader: 'url-loader',
     options: {
       limit: 10000,
-      name: assetsPath('fonts/[name].[hash:7].[ext]'),
-      publicPath: __public
+      name: assetsPath('fonts/[name].[hash:7].[ext]')
+      // publicPath: __public
     }
   }
 ]

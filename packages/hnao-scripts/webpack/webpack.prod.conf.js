@@ -8,8 +8,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+// const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const { __favicon, __static, assetsPath } = require('../utils/paths')
 
@@ -114,21 +114,22 @@ const webpackConfig = merge(baseWebpackConfig, {
       }
     },
     runtimeChunk: 'single',
-    minimizer: [
-      new UglifyJsPlugin({
-        // uglifyOptions: {
-        //   mangle: {
-        //     safari10: true
-        //   }
-        // },
-        sourceMap: config.build.productionSourceMap,
-        cache: true,
-        parallel: true
-      }),
-      // Compress extracted CSS. We are using this plugin so that possible
-      // duplicated CSS from different components can be deduped.
-      new OptimizeCSSAssetsPlugin()
-    ]
+    minimize: true
+    // minimizer: [
+    //   new UglifyJsPlugin({
+    //     // uglifyOptions: {
+    //     //   mangle: {
+    //     //     safari10: true
+    //     //   }
+    //     // },
+    //     sourceMap: config.build.productionSourceMap,
+    //     cache: true,
+    //     parallel: true
+    //   }),
+    //   // Compress extracted CSS. We are using this plugin so that possible
+    //   // duplicated CSS from different components can be deduped.
+    //   new OptimizeCSSAssetsPlugin()
+    // ]
   }
 })
 
