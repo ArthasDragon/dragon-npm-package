@@ -7,7 +7,7 @@ module.exports = aliasObj => {
     return {}
   }
   return {
-    '@utils': path.resolve(cwdPath, 'src/utils'),
+    '@util': path.resolve(cwdPath, 'src/utils'),
     '@': path.resolve(cwdPath, 'src'),
     '@http': path.resolve(cwdPath, 'src/http'),
     '@api': path.resolve(cwdPath, 'src/api')
