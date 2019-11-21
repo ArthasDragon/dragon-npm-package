@@ -1,13 +1,17 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 
-class Home extends React.Component {
-  public render() {
-    return (
-      <div className="App">
-        <header>bus</header>
-      </div>
-    );
-  }
+function Bus() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `You Clicked ${count} times`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </div>
+  );
 }
-
-export default Home;
+export default Bus;
