@@ -1,4 +1,4 @@
-const { __dist, __public } = require('../utils/paths')()
+const { __dist } = require('../utils/paths')()
 const getPlugins = require('../utils/plugins')
 const getAlias = require('../utils/alias')
 
