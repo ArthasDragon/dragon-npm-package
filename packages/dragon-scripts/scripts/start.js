@@ -13,21 +13,11 @@ const WebpackDevServer = require('webpack-dev-server')
 const getConfig = require('../utils/getConfig')
 const config = getConfig('index.js')
 
-const port = config.devServer.port || '8080'
+const port = config.devServer.port
 
 const compiler = createCompiler(devWebpackConf, port)
 
-const options = config.devServer || {
-  clientLogLevel: 'none',
-  noInfo: false,
-  stats: {
-    colors: true
-  },
-  hot: true,
-  historyApiFallback: true,
-  host: 'localhost',
-  disableHostCheck: true
-}
+const options = config.devServer
 
 const server = new WebpackDevServer(compiler, options)
 
