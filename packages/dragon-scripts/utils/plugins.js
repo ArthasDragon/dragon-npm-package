@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const webpack = require('webpack')
 
-module.exports = function() {
+module.exports = function () {
   const env = getenv()
 
   const basePlugins = [
@@ -18,6 +18,7 @@ module.exports = function() {
     }),
     new HtmlWebpackPlugin({
       template: 'templates/index.html',
+      favicon: 'templates/dragon.png',
       inject: true
     })
   ]

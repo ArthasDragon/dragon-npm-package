@@ -1,0 +1,32 @@
+{
+  "name": "my_space",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "dragon-scripts start",
+    "build": "dragon-scripts build",
+    "ts": "tslint -c tslint.json 'src/**/*.tsx'"
+  },
+  "lint-staged": {
+    "*.tsx": [
+      "tslint -c tslint.json",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "antd": "^3.22.0",
+    "babel-polyfill": "^6.26.0",
+    "dva": "^2.4.1",
+    "moment": "^2.24.0",
+    "qs": "^6.8.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-loadable": "^5.5.0",
+    "whatwg-fetch": "^3.0.0"
+  }
+}
