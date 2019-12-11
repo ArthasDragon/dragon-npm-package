@@ -2,14 +2,10 @@
   "name": "my_space",
   "version": "1.0.0",
   "license": "MIT",
-  "scripts": {
-    "start": "dragon-scripts start",
-    "build": "dragon-scripts build",
-    "ts": "tslint -c tslint.json 'src/**/*.tsx'"
-  },
   "lint-staged": {
-    "*.tsx": [
-      "tslint -c tslint.json",
+    "*.{tsx,jsx,js,ts}": [
+      "prettier-eslint --write",
+      "eslint",
       "git add"
     ]
   },

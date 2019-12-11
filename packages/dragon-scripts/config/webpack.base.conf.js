@@ -14,7 +14,7 @@ module.exports = {
     rules: [
       {
         test: /\.tsx/,
-        use: ['babel-loader', 'ts-loader', 'tslint-loader']
+        use: ['babel-loader', 'ts-loader', 'eslint-loader']
       },
       {
         test: /\.jsx/,

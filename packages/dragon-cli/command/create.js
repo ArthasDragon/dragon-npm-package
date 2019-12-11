@@ -10,11 +10,12 @@ const {
 const { shell } = require('execa')
 const checkVersion = require('../utils/checkVersion')
 
-module.exports = async function() {
+module.exports = async function () {
   await checkVersion()
   let projectName
   let category
   let language
+  let useDva
   const categories = [
     // { name: 'vue', value: 'vue' }
     { name: 'react', value: 'react' }
@@ -29,12 +30,12 @@ module.exports = async function() {
       value: 'ts'
     }
   ]
-  const { _projectName, _category, _language } = await inquirer.prompt([
+  const { _projectName, _category, _language, _useDva } = await inquirer.prompt([
     {
       type: 'input',
       message: 'What is the project name',
       name: '_projectName',
-      validate(val) {
+      validate (val) {
         return val.trim() ? true : 'you must provide a project name'
       }
     },
@@ -49,23 +50,29 @@ module.exports = async function() {
       message: 'The language you want to use',
       name: '_language',
       choices: languages
+    },
+    {
+      type: 'confirm',
+      message: "是否使用dva？",
+      name: "_useDva"
     }
   ])
+  useDva = _useDva
   projectName = _projectName
   category = _category
   language = _language
   if (pathExistsSync(resolve(process.cwd(), projectName))) {
     error(`${projectName} has already exists`)
   }
-  createProject(projectName, category, language)
+  createProject(projectName, category, language, useDva)
 }
 
-const createProject = async function(projectName, category, language) {
+const createProject = async function (projectName, category, language, useDva) {
   let generateSpinner = getSpinner('generating... ')
   let installSpinner = getSpinner('installing... ')
   const { stdout: scriptVersion } = await shell(`npm view dragon-scripts version`)
 
-  let templetePath = resolve(__dirname, '../templates/react')
+  let templetePath = useDva ? resolve(__dirname, '../templates/dva') : resolve(__dirname, '../templates/react')
   let initialPkg = require(resolve(templetePath, 'package.json'))
   initialPkg.name = projectName
   initialPkg.scripts = {
