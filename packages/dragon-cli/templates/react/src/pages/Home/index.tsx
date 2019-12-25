@@ -1,32 +1,44 @@
 import * as React from 'react';
-import { RouteWithSubRoutes } from '@util/index';
-import { Layout } from 'antd';
+import { Breadcrumb } from 'antd';
+// import { RouteWithSubRoutes } from '@util/index';
+import { Link } from 'react-router-dom';
 import './home.less';
+
+const SIGN = require('@/assets/imgs/sign.png');
 
 interface Props {
   routes: object[];
 }
 
-interface State {
-  telPhone: string;
-}
-
-class Home extends React.Component<Props, State> {
+class Home extends React.Component<Props> {
   constructor(props) {
     super(props);
-    this.state = {
-      telPhone: '',
-    };
   }
-
   public render() {
-    const { routes } = this.props;
     return (
-      <Layout>
-        {routes.map((route, i) => (
-          <RouteWithSubRoutes key={i} {...route} />
-        ))}
-      </Layout>
+      // 首页
+      <div className="home_wrapper">
+        <div className="menu_wrapper">
+          {/* 我的大大大签名 */}
+          <img src={SIGN} className="signature" alt="" />
+
+          {/* <div className="signature">Arthas Dragon</div> */}
+          {/* 导航 */}
+          <div className="menu">
+            <Breadcrumb>
+              <Breadcrumb.Item>
+                <Link to="/gallery">gallery</Link>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <Link to="/gallery">bodybuilding</Link>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <Link to="/games">games</Link>
+              </Breadcrumb.Item>
+            </Breadcrumb>
+          </div>
+        </div>
+      </div>
     );
   }
 }
