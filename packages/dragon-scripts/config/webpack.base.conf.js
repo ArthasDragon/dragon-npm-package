@@ -1,12 +1,13 @@
 const { __dist } = require('../utils/paths')()
 const getPlugins = require('../utils/plugins')
 const getAlias = require('../utils/alias')
+const config = require('../utils/getConfig')('index.js')
 
 module.exports = {
   entry: './src/index',
   output: {
     path: __dist,
-    publicPath: '/',
+    publicPath: config.publicPath || '/',
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js'
   },
