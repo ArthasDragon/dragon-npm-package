@@ -1,6 +1,6 @@
 {
   "name": "hnao-utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "",
   "author": "ArthasDragon <ywl123698745>",
   "license": "MIT",
@@ -27,5 +27,8 @@
     "test": "jest --notify --coverage",
     "test:watch": "jest --watch",
     "build": "npm run lint && npm run test && rollup -c"
+  },
+  "dependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0"
   }
 }
