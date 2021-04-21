@@ -684,39 +684,31 @@ var noop$1 = function noop() {};
  */
 
 var StompWebSocket = function () {
-	createClass(StompWebSocket, null, [{
-		key: 'getInstance',
-
-		// 静态方法  单例模式
-		value: function getInstance(params) {
-			if (!StompWebSocket.instance) {
-				StompWebSocket.instance = new StompWebSocket(_extends({}, params));
-			}
-			return StompWebSocket.instance;
-		}
-	}]);
-
-	function StompWebSocket(_ref) {
-		var username = _ref.username,
-		    passcode = _ref.passcode,
-		    _ref$destinations = _ref.destinations,
-		    destinations = _ref$destinations === undefined ? [] : _ref$destinations,
-		    url = _ref.url;
+	function StompWebSocket() {
 		classCallCheck(this, StompWebSocket);
-
-		this.username = username; // rabbitmq登录名
-		this.passcode = passcode; // rabbitmq登录密码
-		this.destinations = destinations; // rabbitmq需要监听的队列列表
-		this.url = url; // rabbitmq的websocket地址
-
-		// 调用stomp客户端并存储
-		this.client = stomp.client(this.url);
 	}
 
-	// 建立连接并登录
-
-
 	createClass(StompWebSocket, [{
+		key: 'init',
+		value: function init(_ref) {
+			var username = _ref.username,
+			    passcode = _ref.passcode,
+			    _ref$destinations = _ref.destinations,
+			    destinations = _ref$destinations === undefined ? [] : _ref$destinations,
+			    url = _ref.url;
+
+			this.username = username; // rabbitmq登录名
+			this.passcode = passcode; // rabbitmq登录密码
+			this.destinations = destinations; // rabbitmq需要监听的队列列表
+			this.url = url; // rabbitmq的websocket地址
+
+			// 调用stomp客户端并存储
+			this.client = stomp.client(this.url);
+		}
+
+		// 建立连接并登录
+
+	}, {
 		key: 'connect',
 		value: function connect(successCb, failCb) {
 			this.client.connect({
@@ -740,16 +732,37 @@ var StompWebSocket = function () {
 				_this.client.subscribe(destination, cb || noop$1);
 			});
 		}
+
+		// 关闭连接
+
+	}, {
+		key: 'close',
+		value: function close() {
+			this.client.disconnect();
+		}
+	}], [{
+		key: 'getInstance',
+
+		// 静态方法  单例模式
+		value: function getInstance(defaultParams, params) {
+			if (!StompWebSocket.instance) {
+				StompWebSocket.instance = new StompWebSocket();
+				StompWebSocket.instance.init(_extends({}, defaultParams, params));
+			}
+			// 当传入params的时候才需要初始化  否则直接拿取实例
+			params && StompWebSocket.instance.init(_extends({}, defaultParams, params));
+			return StompWebSocket.instance;
+		}
 	}]);
 	return StompWebSocket;
 }();
 var makeStompWebSocket = function makeStompWebSocket(params) {
-	return StompWebSocket.getInstance(_extends({
+	return StompWebSocket.getInstance({
 		url: SOCKET_URL,
 		username: SOCKET_RABBITMQ_USERNAME,
 		passcode: SOCKET_RABBITMQ_PASSWORD,
 		destinations: SOCKET_RABBITMQ_QUEUES
-	}, params));
+	}, params);
 };
 
 export { debounce, getUrlParams, isPlainObj, isFunc, isNum, isStr, isBool, isArr, isUNN, isSymbol, isHljKey, isEmptyObj, isEmptyArr, isPromise, isPhone, makeStompWebSocket };

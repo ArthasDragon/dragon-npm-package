@@ -18,16 +18,23 @@ const noop = () => { }
  */
 class StompWebSocket {
 	// 静态方法  单例模式
-	static getInstance(params) {
+	static getInstance(defaultParams, params) {
 		if (!StompWebSocket.instance) {
-			StompWebSocket.instance = new StompWebSocket({
+			StompWebSocket.instance = new StompWebSocket()
+			StompWebSocket.instance.init({
+				...defaultParams,
 				...params
 			})
 		}
+		// 当传入params的时候才需要初始化  否则直接拿取实例
+		params && StompWebSocket.instance.init({
+			...defaultParams,
+			...params
+		})
 		return StompWebSocket.instance
 	}
 
-	constructor({
+	init({
 		username,
 		passcode,
 		destinations = [],
@@ -61,6 +68,11 @@ class StompWebSocket {
 		})
 	}
 
+	// 关闭连接
+	close() {
+		this.client.disconnect()
+	}
+
 }
 
 const config = {
@@ -80,8 +92,7 @@ export const makeStompWebSocket = (params) => {
 		username: SOCKET_RABBITMQ_USERNAME,
 		passcode: SOCKET_RABBITMQ_PASSWORD,
 		destinations: SOCKET_RABBITMQ_QUEUES,
-		...params
-	})
+	}, params)
 }
 
 /**
