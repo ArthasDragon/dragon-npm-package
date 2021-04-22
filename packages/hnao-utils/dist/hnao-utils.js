@@ -688,8 +688,25 @@ var noop$1 = function noop() {};
  */
 
 var StompWebSocket = function () {
+	createClass(StompWebSocket, null, [{
+		key: 'getInstance',
+
+		// 静态方法  单例模式
+		value: function getInstance(defaultParams, params) {
+			if (!StompWebSocket.instance) {
+				StompWebSocket.instance = new StompWebSocket();
+				StompWebSocket.instance.init(_extends({}, defaultParams, params));
+			}
+			// 当传入params的时候才需要初始化  否则直接拿取实例
+			params && StompWebSocket.instance.init(_extends({}, defaultParams, params));
+			return StompWebSocket.instance;
+		}
+	}]);
+
 	function StompWebSocket() {
 		classCallCheck(this, StompWebSocket);
+
+		this.isConnecting = false;
 	}
 
 	createClass(StompWebSocket, [{
@@ -715,14 +732,28 @@ var StompWebSocket = function () {
 	}, {
 		key: 'connect',
 		value: function connect(successCb, failCb) {
-			this.client.connect({
-				login: this.username,
-				passcode: this.passcode
-			}, function (res) {
-				successCb && successCb();
-			}, function (res) {
-				console.log(res);
-			});
+			var _this = this;
+
+			// 如果正在连接中  则直接退出
+			if (this.isConnecting) {
+				return;
+			}
+			// 没有正在连接中则先关闭以前的连接再重新进行连接
+			this.close();
+			this.isConnecting = true;
+			// 进行连接  成功  失败均有回调
+			setTimeout(function () {
+				_this.client.connect({
+					login: _this.username,
+					passcode: _this.passcode
+				}, function (res) {
+					_this.isConnecting = false;
+					successCb && successCb();
+				}, function (res) {
+					_this.isConnecting = false;
+					console.log(res);
+				});
+			}, 1000);
 		}
 
 		// 订阅
@@ -730,10 +761,10 @@ var StompWebSocket = function () {
 	}, {
 		key: 'subscribe',
 		value: function subscribe(cb) {
-			var _this = this;
+			var _this2 = this;
 
 			this.destinations.forEach(function (destination) {
-				_this.client.subscribe(destination, cb || noop$1);
+				_this2.client.subscribe(destination, cb || noop$1);
 			});
 		}
 
@@ -743,19 +774,6 @@ var StompWebSocket = function () {
 		key: 'close',
 		value: function close() {
 			this.client.disconnect();
-		}
-	}], [{
-		key: 'getInstance',
-
-		// 静态方法  单例模式
-		value: function getInstance(defaultParams, params) {
-			if (!StompWebSocket.instance) {
-				StompWebSocket.instance = new StompWebSocket();
-				StompWebSocket.instance.init(_extends({}, defaultParams, params));
-			}
-			// 当传入params的时候才需要初始化  否则直接拿取实例
-			params && StompWebSocket.instance.init(_extends({}, defaultParams, params));
-			return StompWebSocket.instance;
 		}
 	}]);
 	return StompWebSocket;

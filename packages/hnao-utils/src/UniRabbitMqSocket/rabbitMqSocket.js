@@ -34,6 +34,10 @@ class StompWebSocket {
 		return StompWebSocket.instance
 	}
 
+	constructor() {
+		this.isConnecting = false
+	}
+
 	init({
 		username,
 		passcode,
@@ -51,14 +55,26 @@ class StompWebSocket {
 
 	// 建立连接并登录
 	connect(successCb, failCb) {
-		this.client.connect({
-			login: this.username,
-			passcode: this.passcode,
-		}, (res) => {
-			successCb && successCb()
-		}, (res) => {
-			console.log(res);
-		})
+		// 如果正在连接中  则直接退出
+		if (this.isConnecting) {
+			return
+		}
+		// 没有正在连接中则先关闭以前的连接再重新进行连接
+		this.close()
+		this.isConnecting = true
+		// 进行连接  成功  失败均有回调
+		setTimeout(() => {
+			this.client.connect({
+				login: this.username,
+				passcode: this.passcode,
+			}, (res) => {
+				this.isConnecting = false
+				successCb && successCb()
+			}, (res) => {
+				this.isConnecting = false
+				console.log(res);
+			})
+		}, 1000)
 	}
 
 	// 订阅
