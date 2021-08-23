@@ -1,6 +1,6 @@
 {
   "name": "hnao-utils",
-  "version": "0.0.8",
+  "version": "0.1.2",
   "repository": "",
   "author": "ArthasDragon <ywl123698745>",
   "license": "MIT",
@@ -29,6 +29,8 @@
     "build": "npm run lint && npm run test && rollup -c"
   },
   "dependencies": {
-    "babel-plugin-transform-runtime": "^6.23.0"
+    "axios": "^0.21.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "qs": "^6.10.1"
   }
 }

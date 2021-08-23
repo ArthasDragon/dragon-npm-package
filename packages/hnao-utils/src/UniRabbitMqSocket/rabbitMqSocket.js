@@ -51,10 +51,20 @@ class StompWebSocket {
 
 		// 调用stomp客户端并存储
 		this.client = stomp.client(this.url)
+
+		// 连接次数
+		this.connectNum = 0
+		this.myClose = false // 是否是自己主动关闭的
 	}
 
 	// 建立连接并登录
 	connect(successCb, failCb) {
+		this.connectNum++
+
+		if (this.connectNum >= 10) {
+			failCb && failCb()
+			return
+		}
 		// 如果正在连接中  则直接退出
 		if (this.isConnecting) {
 			return
@@ -62,16 +72,40 @@ class StompWebSocket {
 		// 没有正在连接中则先关闭以前的连接再重新进行连接
 		this.close()
 		this.isConnecting = true
-		// 进行连接  成功  失败均有回调
 		setTimeout(() => {
 			this.client.connect({
 				login: this.username,
 				passcode: this.passcode,
 			}, (res) => {
 				this.isConnecting = false
+				this.connectNum = 0 // 连接成功重置次数
 				successCb && successCb()
+
+				// 监听连接关闭  则自动重连
+				uni.onSocketClose(() => {
+					// 非正常关闭则触发
+					if (!this.myClose) {
+						uni.showToast({
+							title: '连接断开，正在重连' + this.connectNum,
+							icon: 'none'
+						})
+						this.connect(successCb, failCb)
+					}
+				})
+				console.log(54654654)
+				// 监听连接出错  则自动重连
+				uni.onSocketError(() => {
+					// 非正常关闭则触发
+					uni.showToast({
+						title: '连接断开，正在重连' + this.connectNum,
+						icon: 'none'
+					})
+					this.connect(successCb, failCb)
+				});
 			}, (res) => {
+				this.connectNum = 0 // 连接失败重置次数
 				this.isConnecting = false
+				failCb && failCb()
 				console.log(res);
 			})
 		}, 1000)
@@ -86,6 +120,7 @@ class StompWebSocket {
 
 	// 关闭连接
 	close() {
+		this.myClose = true
 		this.client.disconnect()
 	}
 

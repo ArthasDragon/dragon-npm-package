@@ -721,6 +721,10 @@ var StompWebSocket = function () {
 
 			// 调用stomp客户端并存储
 			this.client = stomp.client(this.url);
+
+			// 连接次数
+			this.connectNum = 0;
+			this.myClose = false; // 是否是自己主动关闭的
 		}
 
 		// 建立连接并登录
@@ -730,6 +734,12 @@ var StompWebSocket = function () {
 		value: function connect(successCb, failCb) {
 			var _this = this;
 
+			this.connectNum++;
+
+			if (this.connectNum >= 10) {
+				failCb && failCb();
+				return;
+			}
 			// 如果正在连接中  则直接退出
 			if (this.isConnecting) {
 				return;
@@ -737,16 +747,40 @@ var StompWebSocket = function () {
 			// 没有正在连接中则先关闭以前的连接再重新进行连接
 			this.close();
 			this.isConnecting = true;
-			// 进行连接  成功  失败均有回调
 			setTimeout(function () {
 				_this.client.connect({
 					login: _this.username,
 					passcode: _this.passcode
 				}, function (res) {
 					_this.isConnecting = false;
+					_this.connectNum = 0; // 连接成功重置次数
 					successCb && successCb();
+
+					// 监听连接关闭  则自动重连
+					uni.onSocketClose(function () {
+						// 非正常关闭则触发
+						if (!_this.myClose) {
+							uni.showToast({
+								title: '连接断开，正在重连' + _this.connectNum,
+								icon: 'none'
+							});
+							_this.connect();
+						}
+					});
+					console.log(54654654);
+					// 监听连接出错  则自动重连
+					uni.onSocketError(function () {
+						// 非正常关闭则触发
+						uni.showToast({
+							title: '连接断开，正在重连' + _this.connectNum,
+							icon: 'none'
+						});
+						_this.connect();
+					});
 				}, function (res) {
+					_this.connectNum = 0; // 连接失败重置次数
 					_this.isConnecting = false;
+					failCb && failCb();
 					console.log(res);
 				});
 			}, 1000);
@@ -769,6 +803,7 @@ var StompWebSocket = function () {
 	}, {
 		key: 'close',
 		value: function close() {
+			this.myClose = true;
 			this.client.disconnect();
 		}
 	}]);
